@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="L'Chaim Lyrics creates custom, studio-quality songs for Jewish celebrations. Weddings, Bar/Bat Mitzvahs, birthdays - your story, your song, ready in 48 hours.">
+    <title>L'Chaim Lyrics | Custom Songs for Jewish Celebrations</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <img src="assets/images/logo.png" alt="L'Chaim Lyrics">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#listen">Listen</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+            </ul>
+            <a href="#pricing" class="nav-cta">Start Your Song</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="hero">
+        <div class="hero-content">
+            <h1>Your Simcha, Your Song.</h1>
+            <p class="hero-subtitle">Custom, studio-quality songs for Jewish weddings, Bar/Bat Mitzvahs, and birthdays. Written for you, ready in 48 hours.</p>
+            <a href="#pricing" class="btn btn-primary">Start Your Song</a>
+        </div>
+        <div class="hero-decoration"></div>
+    </header>
+
+    <!-- Listen Section -->
+    <section class="listen" id="listen">
+        <div class="container">
+            <h2>Hear the Magic</h2>
+            <p class="section-subtitle">Every song tells a unique story. Listen to what we've created for other celebrations.</p>
+
+            <div class="song-grid">
+                <!-- Song Card 1 -->
+                <div class="song-card">
+                    <div class="song-player">
+                        <button class="play-btn" data-audio="assets/audio/sample1.mp3" aria-label="Play song">
+                            <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                            <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                            </svg>
+                        </button>
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <span class="time-display">0:00</span>
+                    </div>
+                    <h3 class="song-title">The Cohen Wedding</h3>
+                    <span class="song-genre">Acoustic Folk</span>
+                    <p class="song-story">"We wanted something that captured how we met at summer camp 15 years ago. This song brought everyone to tears."</p>
+                </div>
+
+                <!-- Song Card 2 -->
+                <div class="song-card">
+                    <div class="song-player">
+                        <button class="play-btn" data-audio="assets/audio/sample2.mp3" aria-label="Play song">
+                            <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                            <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                            </svg>
+                        </button>
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <span class="time-display">0:00</span>
+                    </div>
+                    <h3 class="song-title">Jake's Bar Mitzvah</h3>
+                    <span class="song-genre">Pop/Contemporary</span>
+                    <p class="song-story">"A celebration of our son becoming a man, with all his favorite inside jokes woven in. He couldn't stop smiling."</p>
+                </div>
+
+                <!-- Song Card 3 -->
+                <div class="song-card">
+                    <div class="song-player">
+                        <button class="play-btn" data-audio="assets/audio/sample3.mp3" aria-label="Play song">
+                            <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                            <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                            </svg>
+                        </button>
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <span class="time-display">0:00</span>
+                    </div>
+                    <h3 class="song-title">Golden Anniversary</h3>
+                    <span class="song-genre">Classic Ballad</span>
+                    <p class="song-story">"50 years of marriage told through music. Our parents said it was the best gift they've ever received."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <h2>How It Works</h2>
+            <p class="section-subtitle">From your story to your song in three simple steps.</p>
+
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                        </svg>
+                    </div>
+                    <h3>1. Choose</h3>
+                    <p>Select the package that fits your celebration and budget.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                        </svg>
+                    </div>
+                    <h3>2. Tell</h3>
+                    <p>Share your story—names, memories, inside jokes, and what makes your celebration special.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/>
+                        </svg>
+                    </div>
+                    <h3>3. Receive</h3>
+                    <p>Get your custom song delivered to your inbox, ready to share and celebrate.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2>Choose Your Package</h2>
+            <p class="section-subtitle">Every simcha deserves its own song. Find the perfect fit for your celebration.</p>
+
+            <div class="pricing-grid">
+                <!-- Essential -->
+                <div class="pricing-card">
+                    <h3>Essential</h3>
+                    <div class="price">
+                        <span class="amount">$99</span>
+                    </div>
+                    <ul class="features">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            1 Custom Song
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            MP3 Format
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            48-Hour Delivery
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            Email Support
+                        </li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary">Purchase</a>
+                </div>
+
+                <!-- Simcha Special -->
+                <div class="pricing-card featured">
+                    <span class="badge">Most Popular</span>
+                    <h3>Simcha Special</h3>
+                    <div class="price">
+                        <span class="amount">$189</span>
+                    </div>
+                    <ul class="features">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            1 Custom Song
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            MP3 + WAV Formats
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            2 Revision Rounds
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            48-Hour Delivery
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            Priority Support
+                        </li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Purchase</a>
+                </div>
+
+                <!-- L'Dor V'Dor -->
+                <div class="pricing-card">
+                    <h3>L'Dor V'Dor</h3>
+                    <div class="price">
+                        <span class="amount">$299</span>
+                    </div>
+                    <ul class="features">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            1 Custom Song
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            MP3 + WAV Formats
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            Unlimited Revisions
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            Instrumental Version
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            24-Hour Priority Delivery
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            Dedicated Support
+                        </li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary">Purchase</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="assets/images/logo.png" alt="L'Chaim Lyrics" class="footer-logo">
+                    <p>Turning your stories into songs, one simcha at a time.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#listen">Listen</a>
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="mailto:hello@lchaimlyrics.com">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 L'Chaim Lyrics. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
