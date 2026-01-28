@@ -361,6 +361,14 @@ section {
     font-size: 0.95rem;
 }
 
+.song-author {
+    display: block;
+    margin-top: var(--spacing-xs);
+    font-style: normal;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
 /* How It Works Section */
 .how-it-works {
     background-color: var(--color-background);
@@ -535,6 +543,27 @@ section {
 .footer-links a:hover {
     opacity: 1;
     color: var(--color-accent);
+}
+
+.footer-privacy {
+    text-align: center;
+    padding: var(--spacing-md) 0;
+    margin-bottom: var(--spacing-md);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-privacy h4 {
+    color: var(--color-accent);
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.footer-privacy p {
+    opacity: 0.8;
+    font-size: 0.9rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
 }
 
 .footer-bottom {

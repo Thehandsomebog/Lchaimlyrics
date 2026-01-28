@@ -1,0 +1,7 @@
+# robots.txt for lchaimlyrics.com
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://lchaimlyrics.com/sitemap.xml
