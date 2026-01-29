@@ -250,8 +250,25 @@ section {
 .hero-subtitle {
     font-size: 1.25rem;
     color: var(--color-text-light);
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
     line-height: 1.8;
+}
+
+.hero-events {
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-lg);
+}
+
+.hero-events a {
+    color: var(--color-accent);
+    font-weight: 600;
+    border-bottom: 1px solid transparent;
+    transition: border-color var(--transition);
+}
+
+.hero-events a:hover {
+    border-bottom-color: var(--color-accent);
 }
 
 /* Listen Section */
@@ -542,6 +559,14 @@ section {
 .footer-links a:hover {
     opacity: 1;
     color: var(--color-accent);
+}
+
+.footer-links-title {
+    color: var(--color-accent);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .footer-privacy {
