@@ -519,10 +519,11 @@ section {
     max-width: 300px;
 }
 
-.footer-logo {
-    height: 60px;
-    margin-bottom: var(--spacing-sm);
-    border-radius: var(--border-radius);
+.footer-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-xs);
 }
 
 .footer-brand p {
