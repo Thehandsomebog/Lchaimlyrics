@@ -255,20 +255,18 @@ section {
 }
 
 .hero-events {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: var(--color-text-light);
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
 }
 
 .hero-events a {
     color: var(--color-accent);
     font-weight: 600;
-    border-bottom: 1px solid transparent;
-    transition: border-color var(--transition);
 }
 
 .hero-events a:hover {
-    border-bottom-color: var(--color-accent);
+    text-decoration: underline;
 }
 
 /* Listen Section */
