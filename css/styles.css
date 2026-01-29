@@ -169,7 +169,6 @@ section {
 .nav-logo img {
     height: 50px;
     width: auto;
-    mix-blend-mode: multiply;
 }
 
 .nav-links {
@@ -519,11 +518,9 @@ section {
     max-width: 300px;
 }
 
-.footer-title {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    color: var(--color-accent);
-    margin-bottom: var(--spacing-xs);
+.footer-logo {
+    height: 60px;
+    margin-bottom: var(--spacing-sm);
 }
 
 .footer-brand p {
