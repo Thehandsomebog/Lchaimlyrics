@@ -250,23 +250,8 @@ section {
 .hero-subtitle {
     font-size: 1.25rem;
     color: var(--color-text-light);
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
     line-height: 1.8;
-}
-
-.hero-events {
-    font-size: 1rem;
-    color: var(--color-text-light);
-    margin-bottom: var(--spacing-md);
-}
-
-.hero-events a {
-    color: var(--color-accent);
-    font-weight: 600;
-}
-
-.hero-events a:hover {
-    text-decoration: underline;
 }
 
 /* Listen Section */
@@ -280,17 +265,37 @@ section {
     gap: var(--spacing-md);
 }
 
+.song-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
 .song-card {
     background-color: var(--color-background);
     border-radius: var(--border-radius-lg);
     padding: var(--spacing-md);
     transition: all var(--transition);
     border: 1px solid rgba(10, 36, 99, 0.08);
+    height: 100%;
 }
 
-.song-card:hover {
+.song-card-link:hover .song-card {
     transform: translateY(-4px);
     box-shadow: var(--shadow-lg);
+    border-color: var(--color-accent);
+}
+
+.card-cta {
+    display: block;
+    margin-top: var(--spacing-sm);
+    color: var(--color-accent);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.song-card-link:hover .card-cta {
+    text-decoration: underline;
 }
 
 .song-player {
