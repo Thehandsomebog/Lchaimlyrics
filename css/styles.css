@@ -571,6 +571,40 @@ section {
     font-size: 0.875rem;
 }
 
+/* FAQ Section */
+.faq {
+    background-color: var(--color-background);
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.faq-item {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-md);
+    border: 1px solid rgba(10, 36, 99, 0.08);
+    transition: all var(--transition);
+}
+
+.faq-item:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.faq-question {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-primary);
+}
+
+.faq-answer {
+    color: var(--color-text-light);
+    line-height: 1.7;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-links {

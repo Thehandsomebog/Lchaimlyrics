@@ -29,15 +29,120 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "L'Chaim Lyrics",
-        "description": "Custom, studio-quality songs for Jewish celebrations including weddings, Bar/Bat Mitzvahs, birthdays, and anniversaries.",
-        "url": "https://lchaimlyrics.com",
-        "logo": "https://lchaimlyrics.com/assets/images/logo.png",
-        "priceRange": "$99 - $299",
-        "serviceType": "Custom Song Creation",
-        "areaServed": "Worldwide",
-        "sameAs": []
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://lchaimlyrics.com/#organization",
+                "name": "L'Chaim Lyrics",
+                "url": "https://lchaimlyrics.com",
+                "logo": "https://lchaimlyrics.com/assets/images/logo.png",
+                "description": "Custom songs for Jewish celebrations including weddings, Bar/Bat Mitzvahs, birthdays, and anniversaries.",
+                "email": "hello@lchaimlyrics.com"
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://lchaimlyrics.com/#website",
+                "url": "https://lchaimlyrics.com",
+                "name": "L'Chaim Lyrics",
+                "publisher": {"@id": "https://lchaimlyrics.com/#organization"}
+            },
+            {
+                "@type": "Service",
+                "serviceType": "Custom Song Creation",
+                "provider": {"@id": "https://lchaimlyrics.com/#organization"},
+                "areaServed": "Worldwide",
+                "description": "Personalized, studio-quality songs for Jewish celebrations",
+                "hasOfferCatalog": {
+                    "@type": "OfferCatalog",
+                    "name": "Custom Song Packages",
+                    "itemListElement": [
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Essential Package",
+                                "description": "1 custom song, MP3 format, 1 revision, 5-7 business days delivery"
+                            },
+                            "price": "99",
+                            "priceCurrency": "USD"
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Simcha Special Package",
+                                "description": "1 custom song, MP3 + WAV formats, 3 revisions, 5-7 business days delivery"
+                            },
+                            "price": "189",
+                            "priceCurrency": "USD"
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "L'Dor V'Dor Package",
+                                "description": "1 custom song, MP3 + WAV formats, 5 revisions, 72-hour priority delivery"
+                            },
+                            "price": "299",
+                            "priceCurrency": "USD"
+                        }
+                    ]
+                }
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "How long does it take to receive my custom song?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Standard delivery is 5-7 business days for Essential and Simcha Special packages. Our L'Dor V'Dor package offers 72-hour priority delivery."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can I choose the vocalist gender?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes, you can select your preferred vocalist gender (male or female) to accommodate religious observances and personal preferences."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Is my custom song private?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Absolutely. Your song is created exclusively for you and is never shared, resold, or used anywhere else. Your privacy is always protected."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What information do I need to provide?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Share names, memories, inside jokes, and what makes your celebration special. The more details you provide, the more personalized your song will be."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What music styles are available?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "We create songs in many styles including pop, acoustic, oriental, folk, ballad, and more. Let us know your preference and we'll match your vision."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can I request revisions?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes! Essential includes 1 revision, Simcha Special includes 3 revisions, and L'Dor V'Dor includes 5 revisions to ensure your song is perfect."
+                        }
+                    }
+                ]
+            }
+        ]
     }
     </script>
 
@@ -57,12 +162,13 @@
     <nav class="nav">
         <div class="nav-container">
             <a href="#" class="nav-logo">
-                <img src="assets/images/logo.png" alt="L'Chaim Lyrics">
+                <img src="assets/images/logo.png" alt="L'Chaim Lyrics - Custom songs for Jewish weddings and celebrations">
             </a>
             <ul class="nav-links">
                 <li><a href="#listen">Listen</a></li>
                 <li><a href="#how-it-works">How It Works</a></li>
                 <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#faq">FAQ</a></li>
             </ul>
             <a href="#pricing" class="nav-cta">Start Your Song</a>
         </div>
@@ -295,6 +401,46 @@
         </div>
     </section>
 
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <p class="section-subtitle">Everything you need to know about creating your custom song.</p>
+
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3 class="faq-question">How long does it take to receive my custom song?</h3>
+                    <p class="faq-answer">Standard delivery is 5-7 business days for Essential and Simcha Special packages. Our L'Dor V'Dor package offers 72-hour priority delivery.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">Can I choose the vocalist gender?</h3>
+                    <p class="faq-answer">Yes, you can select your preferred vocalist gender (male or female) to accommodate religious observances and personal preferences.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">Is my custom song private?</h3>
+                    <p class="faq-answer">Absolutely. Your song is created exclusively for you and is never shared, resold, or used anywhere else. Your privacy is always protected.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">What information do I need to provide?</h3>
+                    <p class="faq-answer">Share names, memories, inside jokes, and what makes your celebration special. The more details you provide, the more personalized your song will be.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">What music styles are available?</h3>
+                    <p class="faq-answer">We create songs in many styles including pop, acoustic, oriental, folk, ballad, and more. Let us know your preference and we'll match your vision.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">Can I request revisions?</h3>
+                    <p class="faq-answer">Yes! Essential includes 1 revision, Simcha Special includes 3 revisions, and L'Dor V'Dor includes 5 revisions to ensure your song is perfect.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -307,6 +453,7 @@
                     <a href="#listen">Listen</a>
                     <a href="#how-it-works">How It Works</a>
                     <a href="#pricing">Pricing</a>
+                    <a href="#faq">FAQ</a>
                     <a href="mailto:hello@lchaimlyrics.com">Contact</a>
                 </div>
             </div>
