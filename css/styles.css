@@ -521,7 +521,7 @@ section {
 .footer-logo {
     height: 60px;
     margin-bottom: var(--spacing-sm);
-    filter: brightness(0) invert(1);
+    border-radius: var(--border-radius);
 }
 
 .footer-brand p {
