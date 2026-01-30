@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /**
  * Audio Player Functionality
+ * Audio is lazy-loaded on first interaction for better performance
  */
 function initAudioPlayers() {
     const playButtons = document.querySelectorAll('.play-btn');
@@ -19,7 +20,7 @@ function initAudioPlayers() {
 
     playButtons.forEach(button => {
         const audioSrc = button.dataset.audio;
-        const audio = new Audio(audioSrc);
+        let audio = null; // Lazy-loaded on first click
         const card = button.closest('.song-card');
         const progressBar = card.querySelector('.progress-bar');
         const progressFill = card.querySelector('.progress-fill');
@@ -27,26 +28,36 @@ function initAudioPlayers() {
         const playIcon = button.querySelector('.play-icon');
         const pauseIcon = button.querySelector('.pause-icon');
 
-        // Update progress bar as audio plays
-        audio.addEventListener('timeupdate', () => {
-            const progress = (audio.currentTime / audio.duration) * 100;
-            progressFill.style.width = `${progress}%`;
-            timeDisplay.textContent = formatTime(audio.currentTime);
-        });
+        // Initialize audio on first interaction
+        function getAudio() {
+            if (!audio) {
+                audio = new Audio(audioSrc);
 
-        // Reset when audio ends
-        audio.addEventListener('ended', () => {
-            resetButton(button, playIcon, pauseIcon);
-            progressFill.style.width = '0%';
-            timeDisplay.textContent = '0:00';
-            currentAudio = null;
-            currentButton = null;
-        });
+                // Update progress bar as audio plays
+                audio.addEventListener('timeupdate', () => {
+                    const progress = (audio.currentTime / audio.duration) * 100;
+                    progressFill.style.width = `${progress}%`;
+                    timeDisplay.textContent = formatTime(audio.currentTime);
+                });
+
+                // Reset when audio ends
+                audio.addEventListener('ended', () => {
+                    resetButton(button, playIcon, pauseIcon);
+                    progressFill.style.width = '0%';
+                    timeDisplay.textContent = '0:00';
+                    currentAudio = null;
+                    currentButton = null;
+                });
+            }
+            return audio;
+        }
 
         // Handle play/pause click
         button.addEventListener('click', () => {
+            const playerAudio = getAudio();
+
             // If clicking on a different song, pause the current one
-            if (currentAudio && currentAudio !== audio) {
+            if (currentAudio && currentAudio !== playerAudio) {
                 currentAudio.pause();
                 resetButton(currentButton,
                     currentButton.querySelector('.play-icon'),
@@ -54,16 +65,16 @@ function initAudioPlayers() {
                 );
             }
 
-            if (audio.paused) {
-                audio.play().catch(err => {
+            if (playerAudio.paused) {
+                playerAudio.play().catch(err => {
                     console.log('Audio playback failed:', err);
                 });
                 playIcon.style.display = 'none';
                 pauseIcon.style.display = 'block';
-                currentAudio = audio;
+                currentAudio = playerAudio;
                 currentButton = button;
             } else {
-                audio.pause();
+                playerAudio.pause();
                 resetButton(button, playIcon, pauseIcon);
                 currentAudio = null;
                 currentButton = null;
@@ -72,9 +83,12 @@ function initAudioPlayers() {
 
         // Click on progress bar to seek
         progressBar.addEventListener('click', (e) => {
-            const rect = progressBar.getBoundingClientRect();
-            const percent = (e.clientX - rect.left) / rect.width;
-            audio.currentTime = percent * audio.duration;
+            const playerAudio = getAudio();
+            if (playerAudio.duration) {
+                const rect = progressBar.getBoundingClientRect();
+                const percent = (e.clientX - rect.left) / rect.width;
+                playerAudio.currentTime = percent * playerAudio.duration;
+            }
         });
     });
 }

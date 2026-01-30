@@ -1,75 +1,63 @@
-# L'Chaim Lyrics - Project Context
+# CLAUDE.md
 
-## Business Overview
-L'Chaim Lyrics creates custom, studio-quality songs for Jewish celebrations. We turn personal stories into unforgettable melodies using AI-assisted music generation with human creative direction. Songs are delivered within 48 hours.
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Target Audience
-- Jewish families celebrating life events
-- Weddings, Bar/Bat Mitzvahs, Birthdays, Anniversaries
-- People who want personalized, meaningful gifts
+## Project Overview
 
-## Brand Identity
-
-### Voice & Tone
-- Warm and celebratory
-- Professional but approachable
-- Respectful of tradition while embracing modern convenience
-- Uses terms like "Simcha" (celebration), "L'Dor V'Dor" (from generation to generation)
-
-### Visual Identity
-| Element | Value | Purpose |
-|---------|-------|---------|
-| Primary Color | Deep Navy Blue (#0A2463) | Tradition, trust |
-| Accent Color | Champagne Gold (#D4AF37) | Celebration, Simcha |
-| Background | Off-White/Cream (#FDFBF7) | Premium "wedding paper" feel |
-| Heading Font | Playfair Display | Elegant, invitation-like |
-| Body Font | Lato | Clean, readable |
-
-### Brand Vibe
-Premium, Celebration, Trustworthy
-
-## Pricing Tiers
-
-| Package | Price | Features |
-|---------|-------|----------|
-| Essential | $99 | 1 custom song, MP3 format, 48-hour delivery |
-| Simcha Special | $189 | 1 custom song, MP3 + WAV, 2 revision rounds, 48-hour delivery |
-| L'Dor V'Dor | $299 | 1 custom song, MP3 + WAV, unlimited revisions, instrumental version, priority 24-hour delivery |
+Static website for L'Chaim Lyrics, a custom song creation business for Jewish celebrations. Hosted on GitHub Pages at lchaimlyrics.com.
 
 ## Tech Stack
+
+- **Code**: Plain HTML5, CSS3, Vanilla JavaScript (no frameworks)
 - **Hosting**: GitHub Pages
-- **Domain**: lchaimlyrics.com (DNS via Squarespace)
 - **Payments**: Stripe Payment Links
 - **Forms**: Tally.so
-- **Automation**: Make.com
-- **Code**: Plain HTML5, CSS3, Vanilla JavaScript
 
-## File Structure
-```
-Lchaimlyrics/
-├── index.html          # Main single-page website
-├── css/
-│   └── styles.css      # All styling
-├── js/
-│   └── main.js         # Audio player & interactions
-├── assets/
-│   ├── images/
-│   │   └── logo.png    # Brand logo
-│   └── audio/          # Sample song files (MP3)
-├── CNAME               # Custom domain config
-├── README.md           # Repo description
-├── CLAUDE.md           # This file - project context
-├── AGENTS.md           # Agent instructions
-└── TODO.md             # Task tracking
+## Development Commands
+
+No build process required. To develop locally:
+```bash
+# Using Python
+python -m http.server 8000
+
+# Using Node
+npx serve
 ```
 
-## Key URLs (to be updated)
-- Website: https://lchaimlyrics.com
-- Stripe Dashboard: (TBD)
-- Tally Form: (TBD)
-- Make.com: (TBD)
+Then open `http://localhost:8000`
 
-## Content Notes
-- Hero headline: "Your Simcha, Your Song."
-- Hero subheadline: "Custom, studio-quality songs for Jewish weddings, Bar/Bat Mitzvahs, and birthdays. Written for you, ready in 48 hours."
-- CTA: "Start Your Song"
+## Architecture
+
+- `index.html` - Main homepage
+- `custom-wedding-song.html`, `bar-mitzvah-song.html`, `bat-mitzvah-song.html` - SEO landing pages
+- `css/styles.css` - All styling using CSS custom properties
+- `js/main.js` - Audio player functionality and smooth scroll
+
+### CSS Variables (in `:root`)
+| Variable | Value | Purpose |
+|----------|-------|---------|
+| `--color-primary` | #0A2463 | Deep Navy Blue - headings, trust |
+| `--color-accent` | #D4AF37 | Champagne Gold - CTAs, celebration |
+| `--color-background` | #FDFBF7 | Off-White/Cream - premium feel |
+| `--font-heading` | Playfair Display | Elegant, invitation-like |
+| `--font-body` | Lato | Clean, readable |
+
+### Audio Player (`js/main.js`)
+Custom audio player with:
+- Play/pause toggle with SVG icons
+- Progress bar with click-to-seek
+- Time display formatting
+- Single audio playing at a time (pauses others)
+
+## Coding Guidelines
+
+- Maintain vanilla JS - no React, Vue, or other frameworks
+- Use the CSS custom properties for all colors/fonts
+- Ensure mobile responsiveness (breakpoints at 768px and 480px)
+- Keep tone warm and celebratory; use Jewish terminology (Simcha, Mazel Tov, L'Dor V'Dor)
+
+## External Service Integration
+
+- Stripe Payment Links are embedded in pricing cards (href on Purchase buttons)
+- Stripe redirects to Tally form after payment
+- Make.com handles email automation via Tally webhooks
