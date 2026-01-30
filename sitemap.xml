@@ -24,4 +24,28 @@
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
+    <url>
+        <loc>https://lchaimlyrics.com/custom-anniversary-song.html</loc>
+        <lastmod>2025-01-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://lchaimlyrics.com/custom-birthday-song.html</loc>
+        <lastmod>2025-01-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://lchaimlyrics.com/jewish-engagement-song.html</loc>
+        <lastmod>2025-01-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://lchaimlyrics.com/henna-party-song.html</loc>
+        <lastmod>2025-01-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
 </urlset>
