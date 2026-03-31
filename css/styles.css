@@ -435,7 +435,7 @@ section {
     margin-bottom: var(--spacing-xs);
 }
 
-.celebration-card h3 {
+.celebrations .celebration-card h3 {
     font-family: var(--font-body);
     font-size: 0.9rem;
     font-weight: 600;
