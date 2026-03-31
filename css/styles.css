@@ -405,7 +405,7 @@ section {
 
 .celebrations-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    grid-template-columns: repeat(6, 1fr);
     gap: var(--spacing-sm);
     max-width: 900px;
     margin: 0 auto;
@@ -440,6 +440,7 @@ section {
     font-size: 0.9rem;
     font-weight: 600;
     text-align: center;
+    color: var(--color-accent);
 }
 
 /* How It Works Section */
@@ -835,7 +836,7 @@ section {
     }
 
     .celebrations-grid {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
