@@ -31,7 +31,7 @@ function initAudioPlayers() {
         // Initialize audio on first interaction
         function getAudio() {
             if (!audio) {
-                audio = new Audio(audioSrc);
+                audio = new Audio(encodeURI(audioSrc));
 
                 // Update progress bar as audio plays
                 audio.addEventListener('timeupdate', () => {
