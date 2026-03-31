@@ -389,6 +389,59 @@ section {
     color: var(--color-primary);
 }
 
+/* Celebrations Section */
+.celebrations {
+    background-color: var(--color-primary);
+    padding: var(--spacing-lg) 0;
+}
+
+.celebrations h2 {
+    color: var(--color-white);
+}
+
+.celebrations .section-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.celebrations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: var(--spacing-sm);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.celebration-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-md) var(--spacing-sm);
+    border-radius: var(--border-radius-lg);
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: all var(--transition);
+    text-decoration: none;
+    color: var(--color-white);
+}
+
+.celebration-card:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-3px);
+    border-color: var(--color-accent);
+}
+
+.celebration-icon {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.celebration-card h3 {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: center;
+}
+
 /* How It Works Section */
 .how-it-works {
     background-color: var(--color-background);
@@ -779,6 +832,10 @@ section {
     .steps-grid {
         grid-template-columns: 1fr;
         gap: var(--spacing-md);
+    }
+
+    .celebrations-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     }
 }
 
