@@ -758,6 +758,47 @@ section {
     font-weight: 600;
 }
 
+/* Why Different Section */
+.why-different {
+    background-color: var(--color-white);
+}
+
+.why-different h2 {
+    margin-bottom: var(--spacing-lg);
+}
+
+.why-different-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.why-different-item {
+    background-color: var(--color-background);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-md);
+    border: 1px solid rgba(10, 36, 99, 0.08);
+    transition: all var(--transition);
+}
+
+.why-different-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-accent);
+}
+
+.why-different-item h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-primary);
+}
+
+.why-different-item p {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
 /* FAQ Section */
 .faq {
     background-color: var(--color-background);
@@ -1034,6 +1075,45 @@ section {
 
 .related-articles .blog-grid {
     max-width: 400px;
+}
+
+.related-articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+    max-width: 800px;
+}
+
+.related-article-card {
+    display: block;
+    background-color: var(--color-background);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-md);
+    transition: all var(--transition);
+    border: 1px solid rgba(10, 36, 99, 0.08);
+    text-decoration: none;
+}
+
+.related-article-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-accent);
+}
+
+.related-article-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-primary);
+}
+
+.related-article-card .read-more {
+    color: var(--color-accent);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.related-article-card:hover .read-more {
+    text-decoration: underline;
 }
 
 @media (max-width: 768px) {
