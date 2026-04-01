@@ -602,6 +602,21 @@ section {
     font-size: 0.95rem;
 }
 
+.footer-social {
+    margin-top: var(--spacing-sm);
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.footer-social a {
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: var(--color-accent);
+}
+
 .footer-links {
     display: flex;
     gap: var(--spacing-md);
