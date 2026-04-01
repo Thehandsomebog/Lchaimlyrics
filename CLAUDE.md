@@ -61,3 +61,20 @@ Custom audio player with:
 - Stripe Payment Links are embedded in pricing cards (href on Purchase buttons)
 - Stripe redirects to Tally form after payment
 - Make.com handles email automation via Tally webhooks
+
+## Learned Rules (Don't Repeat These Mistakes)
+
+- Never remove Google Analytics tracking (G-ND48VMKB6V) when editing HTML pages
+- Always include `loading="lazy"` on images below the fold
+- Stripe Payment Links must never be modified without explicit approval
+- All new pages need: meta description, OG tags, canonical URL, structured data (JSON-LD)
+- Keep the same nav structure across all pages (Listen, How It Works, Pricing, Blog)
+- Footer must include all celebration type links (Weddings, Bar Mitzvahs, Bat Mitzvahs, Anniversaries, Birthdays, Engagements, Henna Parties)
+- Copyright year in footer is 2025
+- Use Jewish terminology consistently: Simcha, Mazel Tov, L'Dor V'Dor, Chuppah
+- Testimonials on site are real — don't fabricate new ones without approval
+- Price tiers are $199 / $289 / $389 — don't change without explicit approval
+
+## Notes Directory
+
+Project notes are maintained in `.claude/notes/` for context that persists across sessions. Update notes after completing significant work.
