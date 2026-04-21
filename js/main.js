@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSmoothScroll();
     initNavbarScroll();
     initMobileNav();
+    initThankYouPage();
 });
 
 /**
@@ -221,4 +222,237 @@ function initMobileNav() {
             closeNav();
         }
     });
+}
+
+function initThankYouPage() {
+    const thankYouPage = document.querySelector('[data-thank-you-page]');
+    if (!thankYouPage) return;
+
+    const params = new URLSearchParams(window.location.search);
+    const plan = getThankYouPlan(params.get('plan'));
+    const value = getPurchaseValue(params.get('value'), plan.value);
+    const transactionId = ensureThankYouTransactionId(params);
+    const questionnaireUrl = sanitizeQuestionnaireUrl(params.get('form') || params.get('questionnaire'));
+    const questionnaireLink = document.querySelector('[data-questionnaire-link]');
+    const redirectNote = document.querySelector('[data-redirect-note]');
+    const redirectCountdown = document.querySelector('[data-redirect-countdown]');
+    const fallbackNote = document.querySelector('[data-questionnaire-fallback]');
+
+    setText('[data-plan-name]', plan.name);
+    setText('[data-plan-price]', value ? formatCurrency(value) : 'Custom pricing');
+    setText('[data-plan-delivery]', plan.delivery);
+
+    trackThankYouPurchase({
+        currency: getPurchaseCurrency(params.get('currency')),
+        itemName: plan.name,
+        itemId: plan.key,
+        transactionId,
+        value
+    });
+
+    if (!questionnaireLink) return;
+
+    questionnaireLink.addEventListener('click', () => {
+        if (typeof gtag !== 'function') return;
+
+        gtag('event', 'intake_form_started', {
+            plan: plan.key,
+            destination: questionnaireUrl ? 'questionnaire' : 'support'
+        });
+    });
+
+    if (!questionnaireUrl) {
+        questionnaireLink.textContent = 'Email Us For Your Questionnaire';
+        questionnaireLink.setAttribute('href', 'mailto:hello@lchaimlyrics.com?subject=L%27Chaim%20Lyrics%20Questionnaire%20Help');
+        questionnaireLink.removeAttribute('target');
+        questionnaireLink.removeAttribute('rel');
+
+        if (redirectNote) {
+            redirectNote.hidden = true;
+        }
+
+        if (fallbackNote) {
+            fallbackNote.hidden = false;
+        }
+
+        return;
+    }
+
+    questionnaireLink.setAttribute('href', questionnaireUrl);
+    questionnaireLink.setAttribute('target', '_self');
+
+    if (!redirectNote || !redirectCountdown) return;
+
+    let secondsRemaining = Number(redirectCountdown.textContent) || 5;
+    const redirectTimer = window.setInterval(() => {
+        secondsRemaining -= 1;
+
+        if (secondsRemaining <= 0) {
+            window.clearInterval(redirectTimer);
+            window.location.assign(questionnaireUrl);
+            return;
+        }
+
+        redirectCountdown.textContent = String(secondsRemaining);
+    }, 1000);
+
+    questionnaireLink.addEventListener('click', () => {
+        window.clearInterval(redirectTimer);
+    }, { once: true });
+}
+
+function getThankYouPlan(rawPlan) {
+    const normalizedPlan = normalizePlanKey(rawPlan);
+    const aliases = {
+        essential: 'essential',
+        simcha: 'simcha-special',
+        'simcha-special': 'simcha-special',
+        simchaspecial: 'simcha-special',
+        ldor: 'ldor-vdor',
+        'ldor-vdor': 'ldor-vdor',
+        'ldor-v-dor': 'ldor-vdor',
+        'l-dor-v-dor': 'ldor-vdor'
+    };
+
+    const planKey = aliases[normalizedPlan] || normalizedPlan;
+    const plans = {
+        essential: {
+            key: 'essential',
+            name: 'Essential',
+            value: 199,
+            delivery: '5-7 business days'
+        },
+        'simcha-special': {
+            key: 'simcha-special',
+            name: 'Simcha Special',
+            value: 289,
+            delivery: '5-7 business days'
+        },
+        'ldor-vdor': {
+            key: 'ldor-vdor',
+            name: "L'Dor V'Dor",
+            value: 389,
+            delivery: '72-hour priority delivery'
+        }
+    };
+
+    return plans[planKey] || {
+        key: 'custom-song',
+        name: 'custom song',
+        value: null,
+        delivery: '5-7 business days'
+    };
+}
+
+function normalizePlanKey(value) {
+    if (!value) return '';
+
+    return value
+        .toLowerCase()
+        .replace(/['’]/g, '')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-|-$/g, '');
+}
+
+function getPurchaseValue(rawValue, fallbackValue) {
+    const parsedValue = Number.parseFloat(rawValue);
+    if (Number.isFinite(parsedValue) && parsedValue > 0) {
+        return parsedValue;
+    }
+
+    return fallbackValue;
+}
+
+function getPurchaseCurrency(rawCurrency) {
+    if (!rawCurrency) return 'USD';
+    return rawCurrency.toUpperCase();
+}
+
+function ensureThankYouTransactionId(params) {
+    const existingId = params.get('transaction_id')
+        || params.get('session_id')
+        || params.get('checkout_session_id')
+        || params.get('order_id')
+        || params.get('order_ref');
+
+    if (existingId) {
+        return existingId;
+    }
+
+    const generatedId = `ty_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+    params.set('order_ref', generatedId);
+
+    const queryString = params.toString();
+    const nextUrl = queryString
+        ? `${window.location.pathname}?${queryString}${window.location.hash}`
+        : `${window.location.pathname}${window.location.hash}`;
+
+    window.history.replaceState({}, '', nextUrl);
+    return generatedId;
+}
+
+function sanitizeQuestionnaireUrl(rawUrl) {
+    if (!rawUrl) return '';
+
+    try {
+        const parsedUrl = new URL(rawUrl, window.location.origin);
+        const isSameOrigin = parsedUrl.origin === window.location.origin;
+        const isTallyUrl = parsedUrl.hostname === 'tally.so' || parsedUrl.hostname.endsWith('.tally.so');
+
+        if (!isSameOrigin && parsedUrl.protocol !== 'https:') {
+            return '';
+        }
+
+        if (isSameOrigin || isTallyUrl) {
+            return parsedUrl.toString();
+        }
+
+        return '';
+    } catch (error) {
+        return '';
+    }
+}
+
+function trackThankYouPurchase(purchase) {
+    if (typeof gtag !== 'function' || !purchase.transactionId) return;
+
+    const storageKey = `purchase_tracked_${purchase.transactionId}`;
+    if (window.sessionStorage.getItem(storageKey) === '1') {
+        return;
+    }
+
+    const eventPayload = {
+        currency: purchase.currency,
+        transaction_id: purchase.transactionId,
+        items: [
+            {
+                item_id: purchase.itemId,
+                item_name: purchase.itemName,
+                item_category: 'custom song',
+                quantity: 1
+            }
+        ]
+    };
+
+    if (purchase.value) {
+        eventPayload.value = purchase.value;
+        eventPayload.items[0].price = purchase.value;
+    }
+
+    gtag('event', 'purchase', eventPayload);
+    window.sessionStorage.setItem(storageKey, '1');
+}
+
+function setText(selector, value) {
+    document.querySelectorAll(selector).forEach(element => {
+        element.textContent = value;
+    });
+}
+
+function formatCurrency(value) {
+    return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        maximumFractionDigits: 0
+    }).format(value);
 }
