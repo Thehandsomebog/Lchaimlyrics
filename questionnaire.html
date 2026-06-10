@@ -11,8 +11,26 @@
       gtag('js', new Date());
       gtag('config', 'G-ND48VMKB6V');
     </script>
+    <script>
+      (function () {
+        var tallyUrl = new URL('https://tally.so/r/QK7l77');
+        var params = new URLSearchParams(window.location.search);
+        tallyUrl.searchParams.set('source', params.get('source') || 'lchaimlyrics');
+
+        if (params.get('plan')) {
+          tallyUrl.searchParams.set('plan', params.get('plan'));
+        }
+
+        if (params.get('package')) {
+          tallyUrl.searchParams.set('package', params.get('package'));
+        }
+
+        window.location.replace(tallyUrl.toString());
+      }());
+    </script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="0; url=https://tally.so/r/QK7l77?source=lchaimlyrics">
     <meta name="description" content="Start your L'Chaim Lyrics custom song brief before checkout. Share your Jewish celebration details, vocalist preference, music style, and timeline.">
     <meta name="author" content="L'Chaim Lyrics">
     <meta name="robots" content="noindex, follow">
