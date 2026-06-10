@@ -397,19 +397,19 @@ function getThankYouPlan(rawPlan) {
             key: 'essential',
             name: 'Essential',
             value: 199,
-            delivery: '5-7 business days'
+            delivery: '48 hours'
         },
         'simcha-special': {
             key: 'simcha-special',
             name: 'Simcha Special',
             value: 289,
-            delivery: '5-7 business days'
+            delivery: '48 hours'
         },
         'ldor-vdor': {
             key: 'ldor-vdor',
             name: "L'Dor V'Dor",
             value: 389,
-            delivery: '72-hour priority delivery'
+            delivery: '24-hour priority delivery'
         }
     };
 
@@ -417,7 +417,7 @@ function getThankYouPlan(rawPlan) {
         key: 'custom-song',
         name: 'custom song',
         value: null,
-        delivery: '5-7 business days'
+        delivery: '48 hours'
     };
 }
 
