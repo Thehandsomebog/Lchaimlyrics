@@ -969,6 +969,149 @@ section {
     padding-top: 0;
 }
 
+.questionnaire-hero {
+    min-height: auto;
+    padding-bottom: var(--spacing-lg);
+}
+
+.questionnaire-flow {
+    padding-top: var(--spacing-lg);
+}
+
+.questionnaire-section {
+    background-color: var(--color-white);
+}
+
+.questionnaire-shell {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.9fr) minmax(320px, 1.1fr);
+    gap: var(--spacing-lg);
+    align-items: stretch;
+}
+
+.questionnaire-copy {
+    background-color: var(--color-background);
+    border: 1px solid rgba(10, 36, 99, 0.08);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-md);
+}
+
+.questionnaire-copy h2 {
+    text-align: left;
+}
+
+.questionnaire-copy p {
+    color: var(--color-text-light);
+}
+
+.questionnaire-summary {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+    margin: var(--spacing-md) 0;
+}
+
+.questionnaire-summary div {
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    background-color: var(--color-white);
+    border: 1px solid rgba(10, 36, 99, 0.08);
+}
+
+.questionnaire-summary strong,
+.questionnaire-summary span {
+    display: block;
+}
+
+.questionnaire-summary strong {
+    margin-bottom: 0.25rem;
+    color: var(--color-primary);
+}
+
+.questionnaire-summary span {
+    color: var(--color-text-light);
+}
+
+.brief-checklist {
+    display: grid;
+    gap: 0.6rem;
+    margin: 0 0 var(--spacing-md);
+    color: var(--color-text);
+}
+
+.brief-checklist li {
+    position: relative;
+    padding-left: 1.4rem;
+}
+
+.brief-checklist li::before {
+    content: '';
+    position: absolute;
+    top: 0.62rem;
+    left: 0;
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 50%;
+    background-color: var(--color-accent);
+}
+
+.questionnaire-note {
+    margin-top: var(--spacing-sm);
+    font-size: 0.95rem;
+}
+
+.questionnaire-frame-wrap,
+.questionnaire-frame {
+    min-height: 620px;
+    width: 100%;
+    border-radius: var(--border-radius-lg);
+    border: 1px solid rgba(10, 36, 99, 0.1);
+    background-color: var(--color-background);
+}
+
+.questionnaire-frame {
+    display: block;
+}
+
+.questionnaire-placeholder {
+    min-height: 620px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: var(--spacing-md);
+}
+
+.questionnaire-placeholder h3 {
+    margin-bottom: var(--spacing-sm);
+}
+
+.questionnaire-placeholder p {
+    max-width: 420px;
+    color: var(--color-text-light);
+}
+
+.pricing-card.plan-selected {
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-lg);
+}
+
+.pricing-card.plan-selected::after {
+    content: 'Selected from your brief';
+    position: absolute;
+    left: 50%;
+    bottom: -15px;
+    transform: translateX(-50%);
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+    font-size: 0.8rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
 .btn[aria-disabled="true"] {
     opacity: 0.65;
     pointer-events: none;
@@ -1171,6 +1314,14 @@ section {
 
     .thank-you-actions .btn {
         width: 100%;
+    }
+
+    .questionnaire-shell {
+        grid-template-columns: 1fr;
+    }
+
+    .questionnaire-copy h2 {
+        text-align: center;
     }
 
     section {

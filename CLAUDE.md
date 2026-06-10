@@ -58,9 +58,9 @@ Custom audio player with:
 
 ## External Service Integration
 
-- Stripe Payment Links are embedded in pricing cards (href on Purchase buttons)
-- Stripe redirects to Tally form after payment
-- Make.com handles email automation via Tally webhooks
+- Public pricing cards route to `questionnaire.html?plan=...` before payment
+- Stripe Payment Links live on `questionnaire.html` as the final checkout step after the song brief
+- Tally handles the pre-payment song brief; Make.com handles email automation via Tally webhooks
 
 ## Learned Rules (Don't Repeat These Mistakes)
 

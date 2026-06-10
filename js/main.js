@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSmoothScroll();
     initNavbarScroll();
     initMobileNav();
+    initQuestionnairePage();
     initThankYouPage();
 });
 
@@ -299,6 +300,82 @@ function initThankYouPage() {
     questionnaireLink.addEventListener('click', () => {
         window.clearInterval(redirectTimer);
     }, { once: true });
+}
+
+function initQuestionnairePage() {
+    const questionnairePage = document.querySelector('[data-questionnaire-page]');
+    if (!questionnairePage) return;
+
+    const params = new URLSearchParams(window.location.search);
+    const plan = getThankYouPlan(params.get('plan'));
+    const tallySection = document.querySelector('[data-tally-url]');
+    const tallyLink = document.querySelector('[data-tally-link]');
+    const tallyStatus = document.querySelector('[data-tally-status]');
+    const rawTallyUrl = tallySection ? tallySection.dataset.tallyUrl : '';
+    const tallyUrl = buildQuestionnaireUrl(rawTallyUrl, plan);
+
+    setText('[data-selected-plan-name]', plan.value ? plan.name : 'Choose after the brief');
+    setText('[data-selected-plan-delivery]', plan.value ? plan.delivery : 'Based on package');
+    highlightSelectedPlan(plan.key);
+    trackQuestionnaireStartClicks(plan.key);
+
+    if (!tallyLink) return;
+
+    if (!tallyUrl) {
+        tallyLink.textContent = 'Email Us for the Questionnaire';
+        tallyLink.setAttribute('href', 'mailto:hello@lchaimlyrics.com?subject=L%27Chaim%20Lyrics%20Questionnaire%20Link');
+        tallyLink.removeAttribute('target');
+        tallyLink.removeAttribute('rel');
+        return;
+    }
+
+    tallyLink.textContent = 'Open Questionnaire';
+    tallyLink.setAttribute('href', tallyUrl);
+    tallyLink.setAttribute('target', '_self');
+    tallyLink.removeAttribute('rel');
+
+    if (tallyStatus) {
+        tallyStatus.textContent = 'The questionnaire opens as a full page so Tally can redirect you cleanly to Stripe after you choose a package.';
+    }
+}
+
+function buildQuestionnaireUrl(rawUrl, plan) {
+    const sanitizedUrl = sanitizeQuestionnaireUrl(rawUrl);
+    if (!sanitizedUrl) return '';
+
+    try {
+        const parsedUrl = new URL(sanitizedUrl);
+        if (plan && plan.value) {
+            parsedUrl.searchParams.set('plan', plan.key);
+            parsedUrl.searchParams.set('package', plan.name);
+        }
+        parsedUrl.searchParams.set('source', 'lchaimlyrics');
+        return parsedUrl.toString();
+    } catch (error) {
+        return '';
+    }
+}
+
+function highlightSelectedPlan(planKey) {
+    document.querySelectorAll('[data-plan-card]').forEach(card => {
+        card.classList.toggle('plan-selected', card.dataset.planCard === planKey);
+    });
+}
+
+function trackQuestionnaireStartClicks(planKey) {
+    if (typeof gtag !== 'function') return;
+
+    document.querySelectorAll('[data-tally-link], [data-payment-plan]').forEach(link => {
+        link.addEventListener('click', () => {
+            const eventName = link.matches('[data-payment-plan]')
+                ? 'begin_checkout'
+                : 'questionnaire_started';
+
+            gtag('event', eventName, {
+                plan: link.dataset.paymentPlan || planKey || 'undecided'
+            });
+        });
+    });
 }
 
 function getThankYouPlan(rawPlan) {
