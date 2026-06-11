@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSmoothScroll();
     initNavbarScroll();
     initMobileNav();
+    initLanguageSwitcher();
     initQuestionnairePage();
     initThankYouPage();
 });
@@ -222,6 +223,91 @@ function initMobileNav() {
         if (window.innerWidth > 768) {
             closeNav();
         }
+    });
+}
+
+function initLanguageSwitcher() {
+    const switchers = document.querySelectorAll('[data-language-switcher]');
+    if (!switchers.length) return;
+
+    const languageMeta = {
+        en: { flag: '🇺🇸', code: 'EN' },
+        fr: { flag: '🇫🇷', code: 'FR' },
+        he: { flag: '🇮🇱', code: 'HE' },
+        es: { flag: '🇪🇸', code: 'ES' }
+    };
+
+    const closeAll = () => {
+        switchers.forEach(switcher => {
+            const toggle = switcher.querySelector('.language-toggle');
+            switcher.classList.remove('is-open');
+            if (toggle) toggle.setAttribute('aria-expanded', 'false');
+        });
+    };
+
+    const getOriginalPageUrl = () => {
+        const currentUrl = new URL(window.location.href);
+        const translatedUrl = currentUrl.searchParams.get('u');
+
+        if (translatedUrl) {
+            return translatedUrl;
+        }
+
+        currentUrl.hash = '';
+        return currentUrl.toString();
+    };
+
+    const goToLanguage = lang => {
+        const originalUrl = getOriginalPageUrl();
+
+        if (lang === 'en') {
+            window.location.href = originalUrl;
+            return;
+        }
+
+        const translateLang = lang === 'he' ? 'iw' : lang;
+        const translateUrl = new URL('https://translate.google.com/translate');
+        translateUrl.searchParams.set('sl', 'en');
+        translateUrl.searchParams.set('tl', translateLang);
+        translateUrl.searchParams.set('u', originalUrl);
+        window.location.href = translateUrl.toString();
+    };
+
+    switchers.forEach(switcher => {
+        const toggle = switcher.querySelector('.language-toggle');
+        const currentFlag = switcher.querySelector('.language-current');
+        const currentCode = switcher.querySelector('.language-code');
+        const options = switcher.querySelectorAll('[data-language-option]');
+
+        if (!toggle) return;
+
+        toggle.addEventListener('click', event => {
+            event.stopPropagation();
+            const willOpen = !switcher.classList.contains('is-open');
+            closeAll();
+            switcher.classList.toggle('is-open', willOpen);
+            toggle.setAttribute('aria-expanded', String(willOpen));
+        });
+
+        options.forEach(option => {
+            option.addEventListener('click', () => {
+                const lang = option.dataset.languageOption;
+                const meta = languageMeta[lang];
+
+                if (meta) {
+                    if (currentFlag) currentFlag.textContent = meta.flag;
+                    if (currentCode) currentCode.textContent = meta.code;
+                }
+
+                closeAll();
+                goToLanguage(lang);
+            });
+        });
+    });
+
+    document.addEventListener('click', closeAll);
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') closeAll();
     });
 }
 
