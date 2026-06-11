@@ -311,6 +311,10 @@ section {
     outline: none;
 }
 
+.language-menu button[aria-current="true"] {
+    background-color: rgba(10, 36, 99, 0.08);
+}
+
 .nav-cta {
     padding: 0.75rem 1.5rem;
     background-color: var(--color-accent);

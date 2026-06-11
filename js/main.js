@@ -237,6 +237,48 @@ function initLanguageSwitcher() {
         es: { flag: '🇪🇸', code: 'ES' }
     };
 
+    const normalizeLanguage = lang => {
+        if (!lang) return 'en';
+        const normalized = lang.toLowerCase();
+        if (normalized === 'iw') return 'he';
+        return languageMeta[normalized] ? normalized : 'en';
+    };
+
+    const getActiveLanguage = () => {
+        const currentUrl = new URL(window.location.href);
+        const urlLanguage = currentUrl.searchParams.get('tl') || currentUrl.searchParams.get('_x_tr_tl');
+
+        if (urlLanguage) {
+            return normalizeLanguage(urlLanguage);
+        }
+
+        const translateCookie = document.cookie
+            .split('; ')
+            .find(cookie => cookie.startsWith('googtrans='));
+
+        if (translateCookie) {
+            const cookieLanguage = decodeURIComponent(translateCookie.split('=').pop()).split('/').pop();
+            return normalizeLanguage(cookieLanguage);
+        }
+
+        return 'en';
+    };
+
+    const setSwitcherLanguage = (switcher, lang) => {
+        const meta = languageMeta[normalizeLanguage(lang)];
+        const currentFlag = switcher.querySelector('.language-current');
+        const currentCode = switcher.querySelector('.language-code');
+        const options = switcher.querySelectorAll('[data-language-option]');
+
+        if (currentFlag) currentFlag.textContent = meta.flag;
+        if (currentCode) currentCode.textContent = meta.code;
+
+        options.forEach(option => {
+            const isCurrent = normalizeLanguage(option.dataset.languageOption) === normalizeLanguage(lang);
+            option.toggleAttribute('aria-current', isCurrent);
+        });
+    };
+
     const closeAll = () => {
         switchers.forEach(switcher => {
             const toggle = switcher.querySelector('.language-toggle');
@@ -255,36 +297,80 @@ function initLanguageSwitcher() {
             return translatedUrl;
         }
 
+        if (currentUrl.hostname.endsWith('.translate.goog')) {
+            const originalHost = currentUrl.hostname
+                .replace(/\.translate\.goog$/, '')
+                .replace(/-com$/, '.com');
+            const originalUrl = new URL(currentUrl.pathname, `https://${originalHost}`);
+
+            currentUrl.searchParams.forEach((value, key) => {
+                if (!key.startsWith('_x_tr_')) {
+                    originalUrl.searchParams.set(key, value);
+                }
+            });
+
+            return originalUrl.toString();
+        }
+
         currentUrl.hash = '';
+        currentUrl.searchParams.delete('tl');
+        currentUrl.searchParams.delete('sl');
+        currentUrl.searchParams.delete('u');
+        currentUrl.searchParams.delete('_x_tr_sl');
+        currentUrl.searchParams.delete('_x_tr_tl');
+        currentUrl.searchParams.delete('_x_tr_hl');
+        currentUrl.searchParams.delete('_x_tr_pto');
         return currentUrl.toString();
     };
 
+    const getTranslatedPageUrl = (originalUrl, lang) => {
+        const sourceUrl = new URL(originalUrl);
+
+        if (sourceUrl.hostname === 'lchaimlyrics.com' || sourceUrl.hostname === 'www.lchaimlyrics.com') {
+            const translatedHost = sourceUrl.hostname.replace(/\./g, '-') + '.translate.goog';
+            const translatedUrl = new URL(sourceUrl.pathname, `https://${translatedHost}`);
+
+            sourceUrl.searchParams.forEach((value, key) => {
+                translatedUrl.searchParams.set(key, value);
+            });
+
+            translatedUrl.searchParams.set('_x_tr_sl', 'en');
+            translatedUrl.searchParams.set('_x_tr_tl', lang);
+            translatedUrl.searchParams.set('_x_tr_hl', 'en');
+            translatedUrl.searchParams.set('_x_tr_pto', 'wapp');
+            return translatedUrl.toString();
+        }
+
+        const translateUrl = new URL('https://translate.google.com/translate');
+        translateUrl.searchParams.set('sl', 'en');
+        translateUrl.searchParams.set('tl', lang);
+        translateUrl.searchParams.set('u', originalUrl);
+        return translateUrl.toString();
+    };
+
     const goToLanguage = lang => {
+        const normalizedLang = normalizeLanguage(lang);
         const originalUrl = getOriginalPageUrl();
 
-        if (lang === 'en') {
+        if (normalizedLang === 'en') {
             window.location.href = originalUrl;
             return;
         }
 
-        const translateLang = lang === 'he' ? 'iw' : lang;
-        const translateUrl = new URL('https://translate.google.com/translate');
-        translateUrl.searchParams.set('sl', 'en');
-        translateUrl.searchParams.set('tl', translateLang);
-        translateUrl.searchParams.set('u', originalUrl);
-        window.location.href = translateUrl.toString();
+        window.location.href = getTranslatedPageUrl(originalUrl, normalizedLang);
     };
+
+    const activeLanguage = getActiveLanguage();
 
     switchers.forEach(switcher => {
         const toggle = switcher.querySelector('.language-toggle');
         const menu = switcher.querySelector('.language-menu');
-        const currentFlag = switcher.querySelector('.language-current');
-        const currentCode = switcher.querySelector('.language-code');
         const options = switcher.querySelectorAll('[data-language-option]');
 
         if (!toggle) return;
 
         if (menu) menu.hidden = true;
+        setSwitcherLanguage(switcher, activeLanguage);
 
         toggle.addEventListener('click', event => {
             event.stopPropagation();
@@ -298,13 +384,7 @@ function initLanguageSwitcher() {
         options.forEach(option => {
             option.addEventListener('click', () => {
                 const lang = option.dataset.languageOption;
-                const meta = languageMeta[lang];
-
-                if (meta) {
-                    if (currentFlag) currentFlag.textContent = meta.flag;
-                    if (currentCode) currentCode.textContent = meta.code;
-                }
-
+                setSwitcherLanguage(switcher, lang);
                 closeAll();
                 goToLanguage(lang);
             });
