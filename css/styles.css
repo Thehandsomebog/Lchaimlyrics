@@ -315,6 +315,24 @@ section {
     background-color: rgba(10, 36, 99, 0.08);
 }
 
+.is-rtl .language-menu {
+    right: auto;
+    left: 0;
+}
+
+.is-rtl .language-menu button {
+    text-align: right;
+}
+
+.is-rtl .section-subtitle,
+.is-rtl .hero-subtitle,
+.is-rtl .listen-note,
+.is-rtl .faq-answer,
+.is-rtl .pricing-trust-item,
+.is-rtl .pricing-proof-card {
+    direction: rtl;
+}
+
 .nav-cta {
     padding: 0.75rem 1.5rem;
     background-color: var(--color-accent);
