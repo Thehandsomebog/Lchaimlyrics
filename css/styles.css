@@ -206,11 +206,14 @@ section {
 
 .language-switcher {
     position: relative;
+    flex-shrink: 0;
 }
 
 .language-toggle {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
+    flex-direction: row;
     gap: 0.55rem;
     height: 48px;
     padding: 0 0.9rem;
@@ -233,6 +236,7 @@ section {
 .language-globe {
     width: 22px;
     height: 22px;
+    flex: 0 0 22px;
 }
 
 .language-current {
@@ -249,6 +253,7 @@ section {
 .language-chevron {
     width: 16px;
     height: 16px;
+    flex: 0 0 16px;
     transition: transform var(--transition);
 }
 
@@ -271,6 +276,10 @@ section {
     transform: translateY(-6px);
     transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
     z-index: 1100;
+}
+
+.language-menu[hidden] {
+    display: none;
 }
 
 .language-switcher.is-open .language-menu {

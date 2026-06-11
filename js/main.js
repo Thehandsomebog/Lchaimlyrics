@@ -240,8 +240,10 @@ function initLanguageSwitcher() {
     const closeAll = () => {
         switchers.forEach(switcher => {
             const toggle = switcher.querySelector('.language-toggle');
+            const menu = switcher.querySelector('.language-menu');
             switcher.classList.remove('is-open');
             if (toggle) toggle.setAttribute('aria-expanded', 'false');
+            if (menu) menu.hidden = true;
         });
     };
 
@@ -275,16 +277,20 @@ function initLanguageSwitcher() {
 
     switchers.forEach(switcher => {
         const toggle = switcher.querySelector('.language-toggle');
+        const menu = switcher.querySelector('.language-menu');
         const currentFlag = switcher.querySelector('.language-current');
         const currentCode = switcher.querySelector('.language-code');
         const options = switcher.querySelectorAll('[data-language-option]');
 
         if (!toggle) return;
 
+        if (menu) menu.hidden = true;
+
         toggle.addEventListener('click', event => {
             event.stopPropagation();
             const willOpen = !switcher.classList.contains('is-open');
             closeAll();
+            if (menu) menu.hidden = !willOpen;
             switcher.classList.toggle('is-open', willOpen);
             toggle.setAttribute('aria-expanded', String(willOpen));
         });
