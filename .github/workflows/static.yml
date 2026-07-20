@@ -41,3 +41,13 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  notify-indexnow:
+    name: Notify IndexNow
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Submit sitemap URLs
+        run: bash scripts/submit-indexnow.sh d79f5111c7c09510f3352bee617ffae7
