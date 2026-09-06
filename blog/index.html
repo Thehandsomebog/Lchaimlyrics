@@ -9,7 +9,9 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-ND48VMKB6V');
+      if (['lchaimlyrics.com', 'www.lchaimlyrics.com'].includes(location.hostname)) {
+        gtag('config', 'G-ND48VMKB6V');
+      }
     </script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -77,11 +79,13 @@
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png">
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
             <a href="/" class="nav-logo">
                 <img src="../assets/images/logo.png" alt="L'Chaim Lyrics - Custom songs for Jewish celebrations" width="677" height="369">
+                <span class="nav-wordmark" translate="no">L’Chaim Lyrics</span>
             </a>
             <ul class="nav-links">
                 <li><a href="/#listen">Listen</a></li>
@@ -109,24 +113,26 @@
                     <button type="button" role="menuitem" data-language-option="es"><span aria-hidden="true">🇪🇸</span> Español</button>
                     </div>
                 </div>
-                <a href="/#pricing" class="nav-cta">Start Your Song</a>
+                <a href="/#pricing" class="nav-cta">View Packages</a>
             </div>
-            <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+            <button class="nav-toggle" type="button" aria-controls="mobile-navigation" aria-label="Open navigation menu" aria-expanded="false">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                     <path d="M4 7h16M4 12h16M4 17h16"/>
                 </svg>
             </button>
         </div>
-        <div class="nav-mobile-panel">
+        <div class="nav-mobile-panel" id="mobile-navigation">
             <div class="nav-mobile-links">
                 <a href="/#listen">Listen</a>
                 <a href="/#how-it-works">How It Works</a>
                 <a href="/#pricing">Pricing</a>
                 <a href="/blog/">Blog</a>
             </div>
-            <a href="/#pricing" class="btn btn-primary nav-mobile-cta">Start Your Song</a>
+            <a href="/#pricing" class="btn btn-primary nav-mobile-cta">View Packages</a>
         </div>
     </nav>
+
+    <main id="main-content" tabindex="-1">
 
     <!-- Breadcrumb -->
     <div class="breadcrumb">
@@ -181,11 +187,32 @@
         <div class="container">
             <div class="blog-grid">
                 <article class="blog-card">
+                    <a href="/blog/personalized-bat-mitzvah-gifts.html">
+                        <div class="blog-card-content">
+                            <span class="blog-category">Bat Mitzvah</span>
+                            <h2>Personalized Bat Mitzvah Gifts: Meaningful Ideas Beyond Cash</h2>
+                            <p>Compare custom songs, Hebrew name jewelry, family keepsakes, and experiences to find a gift that feels like her.</p>
+                            <span class="blog-read-more">Read Article →</span>
+                        </div>
+                    </a>
+                </article>
+                <article class="blog-card">
+                    <a href="/blog/top-10-jewish-wedding-songs.html">
+                        <div class="blog-card-content">
+                            <span class="blog-category">Weddings</span>
+                            <h2>Top 10 Jewish Wedding Songs for Every Part of Your Simcha</h2>
+                            <p>Choose music for the chuppah, hora, first dance, dinner, and reception with this practical wedding playlist guide.</p>
+                            <span class="blog-read-more">Read Article →</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="blog-card">
                     <a href="/blog/what-is-a-lchaim-party.html">
                         <div class="blog-card-content">
                             <span class="blog-category">Engagements</span>
-                            <h2>What Is a L'Chaim Party? Traditions, Music &amp; Ideas</h2>
-                            <p>Learn what happens at a L'Chaim, how it differs from a vort, and how to spell and pronounce the name.</p>
+                            <h2>What Is a L'Chaim Party? Meaning, Customs &amp; Etiquette</h2>
+                            <p>Learn what happens at a L'Chaim, what guests wear, whether to bring a gift, and how it differs from a vort.</p>
                             <span class="blog-read-more">Read Article →</span>
                         </div>
                     </a>
@@ -299,7 +326,7 @@
                         <div class="blog-card-content">
                             <span class="blog-category">Bat Mitzvah</span>
                             <h2>Bat Mitzvah Candle Lighting Song Ideas</h2>
-                            <p>Make the candle lighting feel more personal with music that supports the dedications and fits her story.</p>
+                            <p>Find songs for parents, grandparents, siblings, and friends, plus tips for timing each candle lighting dedication.</p>
                             <span class="blog-read-more">Read Article →</span>
                         </div>
                     </a>
@@ -378,12 +405,14 @@
             <div class="blog-cta">
                 <h2>Ready to Turn an Idea into a Song?</h2>
                 <p>Choose the celebration page that fits your event, then we'll turn your story, memories, and family details into something celebration-ready.</p>
-                <a href="/#pricing" class="btn btn-primary">Start Your Song</a>
+                <a href="/#pricing" class="btn btn-primary">View Packages</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
+    </main>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -417,7 +446,7 @@
             </div>
             <div class="footer-privacy">
                 <h2>Your Privacy, Guaranteed</h2>
-                <p>Your custom song is created exclusively for you. We never share, resell, or use your song or personal stories anywhere else.</p>
+                <p>Your custom song is created for you and delivered privately. We do not publish your song or personal story without your permission.</p>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 L'Chaim Lyrics. All rights reserved.</p>

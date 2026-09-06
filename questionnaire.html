@@ -9,7 +9,9 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-ND48VMKB6V');
+      if (['lchaimlyrics.com', 'www.lchaimlyrics.com'].includes(location.hostname)) {
+        gtag('config', 'G-ND48VMKB6V');
+      }
     </script>
     <script>
       (function () {
@@ -99,10 +101,12 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
 </head>
 <body data-questionnaire-page>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <nav class="nav">
         <div class="nav-container">
             <a href="/" class="nav-logo">
                 <img src="assets/images/logo.png" alt="L'Chaim Lyrics - Custom songs for Jewish weddings and celebrations" width="677" height="369">
+                <span class="nav-wordmark" translate="no">L’Chaim Lyrics</span>
             </a>
             <ul class="nav-links">
                 <li><a href="/#listen">Listen</a></li>
@@ -132,13 +136,13 @@
                 </div>
                 <a href="#song-brief" class="nav-cta">Start Brief</a>
             </div>
-            <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+            <button class="nav-toggle" type="button" aria-controls="mobile-navigation" aria-label="Open navigation menu" aria-expanded="false">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                     <path d="M4 7h16M4 12h16M4 17h16"/>
                 </svg>
             </button>
         </div>
-        <div class="nav-mobile-panel">
+        <div class="nav-mobile-panel" id="mobile-navigation">
             <div class="nav-mobile-links">
                 <a href="/#listen">Listen</a>
                 <a href="/#how-it-works">How It Works</a>
@@ -148,6 +152,8 @@
             <a href="#song-brief" class="btn btn-primary nav-mobile-cta">Start Brief</a>
         </div>
     </nav>
+
+    <main id="main-content" tabindex="-1">
 
     <div class="breadcrumb">
         <div class="container">
@@ -249,6 +255,9 @@
             <div class="pricing-grid">
                 <div class="pricing-card" data-plan-card="essential">
                     <h3>Essential</h3>
+                    <!-- package-price:essential -->
+                    <p class="price"><span class="amount">$199</span> <span>USD · one-time</span></p>
+                    <!-- /package-price -->
                     <p class="package-note">Simple keepsake song</p>
                     <ul class="features">
                         <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>1 Custom Song</li>
@@ -263,6 +272,9 @@
                 <div class="pricing-card featured" data-plan-card="simcha-special">
                     <span class="badge">Most Popular</span>
                     <h3>Simcha Special</h3>
+                    <!-- package-price:simcha-special -->
+                    <p class="price"><span class="amount">$289</span> <span>USD · one-time</span></p>
+                    <!-- /package-price -->
                     <p class="package-note">Most popular for simchas</p>
                     <ul class="features">
                         <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>1 Custom Song</li>
@@ -276,6 +288,9 @@
 
                 <div class="pricing-card" data-plan-card="ldor-vdor">
                     <h3>L'Dor V'Dor</h3>
+                    <!-- package-price:ldor-vdor -->
+                    <p class="price"><span class="amount">$389</span> <span>USD · one-time</span></p>
+                    <!-- /package-price -->
                     <p class="package-note">Priority turnaround package</p>
                     <ul class="features">
                         <li><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>1 Custom Song</li>
@@ -327,6 +342,8 @@
         </div>
     </section>
 
+    </main>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -360,7 +377,7 @@
             </div>
             <div class="footer-privacy">
                 <h2>Your Privacy, Guaranteed</h2>
-                <p>Your custom song is created exclusively for you. We never share, resell, or use your song or personal stories anywhere else. Your celebration, your music, your privacy always stay protected.</p>
+                <p>Your custom song is created for you and delivered privately. We do not publish your song or personal story without your permission. Your celebration, your music, your privacy always stay protected.</p>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 L'Chaim Lyrics. All rights reserved.</p>

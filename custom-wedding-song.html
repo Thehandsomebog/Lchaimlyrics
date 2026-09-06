@@ -9,7 +9,9 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-ND48VMKB6V');
+      if (['lchaimlyrics.com', 'www.lchaimlyrics.com'].includes(location.hostname)) {
+        gtag('config', 'G-ND48VMKB6V');
+      }
     </script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,7 +42,7 @@
         "@graph": [
             {
                 "@type": "Service",
-                "name": "Custom Wedding Songs",
+                "name": "Custom Jewish Wedding Songs",
                 "description": "Personalized, studio-quality songs for Jewish weddings. Perfect for ceremonies, first dances, or surprise gifts.",
                 "provider": {
                     "@type": "Organization",
@@ -124,11 +126,13 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
             <a href="/" class="nav-logo">
                 <img src="assets/images/logo.png" alt="L'Chaim Lyrics - Custom songs for Jewish weddings and celebrations" width="677" height="369">
+                <span class="nav-wordmark" translate="no">L’Chaim Lyrics</span>
             </a>
             <ul class="nav-links">
                 <li><a href="/#listen">Listen</a></li>
@@ -158,13 +162,13 @@
                 </div>
                 <a href="https://tally.so/r/QK7l77?source=lchaimlyrics" class="nav-cta">Start Your Song</a>
             </div>
-            <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+            <button class="nav-toggle" type="button" aria-controls="mobile-navigation" aria-label="Open navigation menu" aria-expanded="false">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                     <path d="M4 7h16M4 12h16M4 17h16"/>
                 </svg>
             </button>
         </div>
-        <div class="nav-mobile-panel">
+        <div class="nav-mobile-panel" id="mobile-navigation">
             <div class="nav-mobile-links">
                 <a href="/#listen">Listen</a>
                 <a href="/#how-it-works">How It Works</a>
@@ -174,6 +178,8 @@
             <a href="https://tally.so/r/QK7l77?source=lchaimlyrics" class="btn btn-primary nav-mobile-cta">Start Your Song</a>
         </div>
     </nav>
+
+    <main id="main-content" tabindex="-1">
 
     <!-- Breadcrumb -->
     <div class="breadcrumb">
@@ -185,8 +191,8 @@
     <!-- Hero Section -->
     <header class="hero hero-landing" id="hero">
         <div class="hero-content">
-            <h1>Custom Wedding Songs</h1>
-            <p class="hero-subtitle">Tell your love story through music. We create personalized wedding songs that capture how you met, fell in love, and chose to spend forever together.</p>
+            <h1>Custom Jewish Wedding Songs</h1>
+            <p class="hero-subtitle">Your love story, your Hebrew names, your family traditions. Create a personalized wedding song for the chuppah, first dance, or a surprise gift, with a vocalist choice that fits your celebration.</p>
             <a href="https://tally.so/r/QK7l77?source=lchaimlyrics" class="btn btn-primary">Create Your Wedding Song</a>
         </div>
     </header>
@@ -218,6 +224,32 @@
         </div>
     </section>
 
+    <section class="why-section" aria-labelledby="wedding-listening-title">
+        <div class="container">
+            <h2 id="wedding-listening-title">Hear Two Sides of a Jewish Wedding</h2>
+            <p class="section-subtitle">Explore the wedding previews already featured on our site: a softer chuppah arrangement and an upbeat Ashkenazi wedding track. Use them to discuss the mood you want.</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Shir HaShirim: Chuppah Preview</h3>
+                    <p>A gentle ceremony mood for a quieter moment beneath the chuppah.</p>
+                    <audio controls preload="none" data-sample-id="chuppah" aria-label="Listen to the Shir HaShirim chuppah preview" style="width: 100%;">
+                        <source src="assets/audio/Shir HaShirim.mp3" type="audio/mpeg">
+                        <a href="assets/audio/Shir HaShirim.mp3">Listen to the chuppah preview</a>.
+                    </audio>
+                </div>
+                <div class="feature-card">
+                    <h3>מֶנְדִי וְרִיבְקה: Wedding Dance Preview</h3>
+                    <p>A lively Ashkenazi wedding sound for the reception and dance floor.</p>
+                    <audio controls preload="none" data-sample-id="ashkenazi-wedding" aria-label="Listen to the Ashkenazi wedding dance preview" style="width: 100%;">
+                        <source src="assets/audio/מֶנְדִי וְרִיבְקה.mp3" type="audio/mpeg">
+                        <a href="assets/audio/מֶנְדִי וְרִיבְקה.mp3">Listen to the wedding dance preview</a>.
+                    </audio>
+                </div>
+            </div>
+            <p class="section-subtitle">Planning the rest of the music? Browse our <a href="/blog/top-10-jewish-wedding-songs.html">top 10 Jewish wedding songs</a> for traditional selections to sit alongside your personalized song.</p>
+        </div>
+    </section>
+
     <!-- Testimonial -->
     <section class="testimonial-section">
         <div class="container">
@@ -238,12 +270,12 @@
                     <p>Every song is written from scratch based on your journey together. We listen to how you met, your first date, the proposal, and the little moments that define your relationship. No templates, no generic lyrics.</p>
                 </div>
                 <div class="why-different-item">
-                    <h3>Culturally Authentic</h3>
-                    <p>We understand Jewish wedding traditions—from the chuppah to the hora. Whether you want Hebrew phrases woven in, references to your shared heritage, or a blend of modern and traditional, we get it right.</p>
+                    <h3>Your Jewish Traditions, Your Way</h3>
+                    <p>Share Hebrew names with pronunciation notes, the traditions you want to honor, and the moment the song will accompany. Choose a male or female vocalist. For ceremony music or observance questions, agree on the lyrics and placement with your officiant.</p>
                 </div>
                 <div class="why-different-item">
                     <h3>Studio-Quality Production</h3>
-                    <p>Your song is professionally produced with real instrumentation and vocals. Choose from pop, acoustic, oriental, ballad, and more. The final product sounds like it belongs on the radio, not a home recording.</p>
+                    <p>Your song is professionally produced with a vocal performance and an arrangement shaped around your story. Choose from pop, acoustic, oriental, ballad, and more. The final product sounds like it belongs on the radio, not a home recording.</p>
                 </div>
             </div>
         </div>
@@ -262,8 +294,8 @@
                             <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
                         </svg>
                     </div>
-                    <h3>1. Choose</h3>
-                    <p>Select the package that fits your wedding and budget.</p>
+                    <h3>1. Share Your Story</h3>
+                    <p>Allow 5–10 minutes for the brief: names, pronunciation, memories, music style, and your celebration date.</p>
                 </div>
 
                 <div class="step">
@@ -272,8 +304,8 @@
                             <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
                         </svg>
                     </div>
-                    <h3>2. Tell</h3>
-                    <p>Share your love story—how you met, special memories, inside jokes. Choose your preferred vocalist gender.</p>
+                    <h3>2. Choose &amp; Pay</h3>
+                    <p>Choose your package after the brief, then complete secure Stripe checkout. Opening the brief does not charge you.</p>
                 </div>
 
                 <div class="step">
@@ -299,6 +331,9 @@
                 <!-- Essential -->
                 <div class="pricing-card">
                     <h3>Essential</h3>
+                    <!-- package-price:essential -->
+                    <p class="price"><span class="amount">$199</span> <span>USD · one-time</span></p>
+                    <!-- /package-price -->
                     <p class="package-note">Simple keepsake song</p>
                     <ul class="features">
                         <li>
@@ -325,6 +360,9 @@
                 <div class="pricing-card featured">
                     <span class="badge">Most Popular</span>
                     <h3>Simcha Special</h3>
+                    <!-- package-price:simcha-special -->
+                    <p class="price"><span class="amount">$289</span> <span>USD · one-time</span></p>
+                    <!-- /package-price -->
                     <p class="package-note">Most popular for simchas</p>
                     <ul class="features">
                         <li>
@@ -350,6 +388,9 @@
                 <!-- L'Dor V'Dor -->
                 <div class="pricing-card">
                     <h3>L'Dor V'Dor</h3>
+                    <!-- package-price:ldor-vdor -->
+                    <p class="price"><span class="amount">$389</span> <span>USD · one-time</span></p>
+                    <!-- /package-price -->
                     <p class="package-note">Priority turnaround package</p>
                     <ul class="features">
                         <li>
@@ -384,7 +425,7 @@
                 </div>
                 <div class="pricing-trust-item">
                     <strong>No Public Sharing</strong>
-                    <span>Your wedding story stays yours. Every order is delivered privately and never reused elsewhere.</span>
+                    <span>Your wedding story stays yours. Every order is delivered privately; public examples require your permission.</span>
                 </div>
             </div>
         </div>
@@ -437,6 +478,8 @@
     </section>
 
     <!-- Footer -->
+    </main>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -470,7 +513,7 @@
             </div>
             <div class="footer-privacy">
                 <h2>Your Privacy, Guaranteed</h2>
-                <p>Your custom song is created exclusively for you. We never share, resell, or use your song or personal stories anywhere else.</p>
+                <p>Your custom song is created for you and delivered privately. We do not publish your song or personal story without your permission.</p>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 L'Chaim Lyrics. All rights reserved.</p>

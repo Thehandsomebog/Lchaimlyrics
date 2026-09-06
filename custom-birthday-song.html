@@ -9,7 +9,9 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-ND48VMKB6V');
+      if (['lchaimlyrics.com', 'www.lchaimlyrics.com'].includes(location.hostname)) {
+        gtag('config', 'G-ND48VMKB6V');
+      }
     </script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -107,11 +109,13 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
             <a href="/" class="nav-logo">
                 <img src="assets/images/logo.png" alt="L'Chaim Lyrics - Custom songs for Jewish celebrations" width="677" height="369">
+                <span class="nav-wordmark" translate="no">L’Chaim Lyrics</span>
             </a>
             <ul class="nav-links">
                 <li><a href="/#listen">Listen</a></li>
@@ -141,13 +145,13 @@
                 </div>
                 <a href="https://tally.so/r/QK7l77?source=lchaimlyrics" class="nav-cta">Start Your Song</a>
             </div>
-            <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+            <button class="nav-toggle" type="button" aria-controls="mobile-navigation" aria-label="Open navigation menu" aria-expanded="false">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                     <path d="M4 7h16M4 12h16M4 17h16"/>
                 </svg>
             </button>
         </div>
-        <div class="nav-mobile-panel">
+        <div class="nav-mobile-panel" id="mobile-navigation">
             <div class="nav-mobile-links">
                 <a href="/#listen">Listen</a>
                 <a href="/#how-it-works">How It Works</a>
@@ -157,6 +161,8 @@
             <a href="https://tally.so/r/QK7l77?source=lchaimlyrics" class="btn btn-primary nav-mobile-cta">Start Your Song</a>
         </div>
     </nav>
+
+    <main id="main-content" tabindex="-1">
 
     <!-- Breadcrumb -->
     <div class="breadcrumb">
@@ -245,8 +251,8 @@
                             <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
                         </svg>
                     </div>
-                    <h3>1. Choose</h3>
-                    <p>Select the package that fits your celebration.</p>
+                    <h3>1. Share Your Story</h3>
+                    <p>Allow 5–10 minutes for the brief: names, pronunciation, memories, music style, and your celebration date.</p>
                 </div>
 
                 <div class="step">
@@ -255,8 +261,8 @@
                             <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
                         </svg>
                     </div>
-                    <h3>2. Tell</h3>
-                    <p>Share their name, personality, hobbies, achievements, and what makes them special to you.</p>
+                    <h3>2. Choose &amp; Pay</h3>
+                    <p>Choose your package after the brief, then complete secure Stripe checkout. Opening the brief does not charge you.</p>
                 </div>
 
                 <div class="step">
@@ -282,6 +288,9 @@
                 <!-- Essential -->
                 <div class="pricing-card">
                     <h3>Essential</h3>
+                    <!-- package-price:essential -->
+                    <p class="price"><span class="amount">$199</span> <span>USD · one-time</span></p>
+                    <!-- /package-price -->
                     <p class="package-note">Simple keepsake song</p>
                     <ul class="features">
                         <li>
@@ -308,6 +317,9 @@
                 <div class="pricing-card featured">
                     <span class="badge">Most Popular</span>
                     <h3>Simcha Special</h3>
+                    <!-- package-price:simcha-special -->
+                    <p class="price"><span class="amount">$289</span> <span>USD · one-time</span></p>
+                    <!-- /package-price -->
                     <p class="package-note">Most popular for simchas</p>
                     <ul class="features">
                         <li>
@@ -333,6 +345,9 @@
                 <!-- L'Dor V'Dor -->
                 <div class="pricing-card">
                     <h3>L'Dor V'Dor</h3>
+                    <!-- package-price:ldor-vdor -->
+                    <p class="price"><span class="amount">$389</span> <span>USD · one-time</span></p>
+                    <!-- /package-price -->
                     <p class="package-note">Priority turnaround package</p>
                     <ul class="features">
                         <li>
@@ -415,6 +430,8 @@
     </section>
 
     <!-- Footer -->
+    </main>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -448,7 +465,7 @@
             </div>
             <div class="footer-privacy">
                 <h2>Your Privacy, Guaranteed</h2>
-                <p>Your custom song is created exclusively for you. We never share, resell, or use your song or personal stories anywhere else.</p>
+                <p>Your custom song is created for you and delivered privately. We do not publish your song or personal story without your permission.</p>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 L'Chaim Lyrics. All rights reserved.</p>

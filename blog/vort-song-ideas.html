@@ -7,7 +7,9 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-ND48VMKB6V');
+      if (['lchaimlyrics.com', 'www.lchaimlyrics.com'].includes(location.hostname)) {
+        gtag('config', 'G-ND48VMKB6V');
+      }
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Vort song ideas for Jewish engagement celebrations. Learn how to use a personalized song for the couple entrance, family welcome, toast, or slideshow.">
@@ -39,7 +41,7 @@
             "logo": "https://lchaimlyrics.com/assets/images/logo.png"
         },
         "datePublished": "2026-04-09T12:00:00-04:00",
-        "dateModified": "2026-04-09T12:00:00-04:00",
+        "dateModified": "2026-08-07T12:00:00-04:00",
         "mainEntityOfPage": {"@type": "WebPage", "@id": "https://lchaimlyrics.com/blog/vort-song-ideas.html"}
     }
     </script>
@@ -64,9 +66,11 @@
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png">
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <nav class="nav">
         <div class="nav-container">
-            <a href="/" class="nav-logo"><img src="../assets/images/logo.png" alt="L'Chaim Lyrics - Custom songs for Jewish celebrations" width="677" height="369"></a>
+            <a href="/" class="nav-logo"><img src="../assets/images/logo.png" alt="L'Chaim Lyrics - Custom songs for Jewish celebrations" width="677" height="369">
+                <span class="nav-wordmark" translate="no">L’Chaim Lyrics</span></a>
             <ul class="nav-links">
                 <li><a href="/#listen">Listen</a></li>
                 <li><a href="/#how-it-works">How It Works</a></li>
@@ -93,22 +97,24 @@
                     <button type="button" role="menuitem" data-language-option="es"><span aria-hidden="true">🇪🇸</span> Español</button>
                     </div>
                 </div>
-                <a href="/#pricing" class="nav-cta">Start Your Song</a>
+                <a href="/#pricing" class="nav-cta">View Packages</a>
             </div>
-            <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+            <button class="nav-toggle" type="button" aria-controls="mobile-navigation" aria-label="Open navigation menu" aria-expanded="false">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
             </button>
         </div>
-        <div class="nav-mobile-panel">
+        <div class="nav-mobile-panel" id="mobile-navigation">
             <div class="nav-mobile-links">
                 <a href="/#listen">Listen</a>
                 <a href="/#how-it-works">How It Works</a>
                 <a href="/#pricing">Pricing</a>
                 <a href="/blog/">Blog</a>
             </div>
-            <a href="/#pricing" class="btn btn-primary nav-mobile-cta">Start Your Song</a>
+            <a href="/#pricing" class="btn btn-primary nav-mobile-cta">View Packages</a>
         </div>
     </nav>
+
+    <main id="main-content" tabindex="-1">
     <div class="breadcrumb"><div class="container"><a href="/">Home</a> &rsaquo; <a href="/blog/">Blog</a> &rsaquo; <span>Vort Song Ideas</span></div></div>
     <article class="blog-article">
         <div class="container">
@@ -124,7 +130,7 @@
                 <h3>Couple Entrance</h3>
                 <p>If the couple is making a formal entrance, a personalized track immediately tells guests this night has its own center of gravity. It can be warm, upbeat, or family-led depending on the tone of the event.</p>
                 <h3>After the L'Chaim Toast</h3>
-                <p>This is one of the strongest placements. The blessings end, the room settles, and the song turns the couple's story into something shared by everyone there.</p>
+                <p>This is one of the strongest placements. The blessings end, the room settles, and the song turns the couple's story into something shared by everyone there. For the customs and guest expectations around that moment, see our guide to <a href="/blog/what-is-a-lchaim-party.html">what a L'Chaim party is</a>.</p>
                 <h3>As a Gift from Parents</h3>
                 <p>When the song comes from one or both sides of the family, it can welcome the couple while also honoring how the two families are coming together.</p>
                 <h3>Under a Slideshow or Photo Montage</h3>
@@ -186,6 +192,8 @@
             </div>
         </div>
     </section>
+    </main>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -219,7 +227,7 @@
             </div>
             <div class="footer-privacy">
                 <h2>Your Privacy, Guaranteed</h2>
-                <p>Your custom song is created exclusively for you. We never share, resell, or use your song or personal stories anywhere else.</p>
+                <p>Your custom song is created for you and delivered privately. We do not publish your song or personal story without your permission.</p>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 L'Chaim Lyrics. All rights reserved.</p>

@@ -1,6 +1,19 @@
 # Product Marketing Context
 
-*Last updated: February 2, 2026*
+*Verified facts updated: September 6, 2026. Historical positioning below dates from February 2, 2026.*
+
+## Current Verified Facts — Use These Instead of Conflicting Historical Notes
+
+- The owner confirmed prices in USD: Essential $199, Simcha Special $289, L'Dor V'Dor $389. These are one-time package prices; the source of truth for website rendering is `config/packages.json`.
+- The owner confirmed homepage songs and testimonials are real customer examples in response to the question about permissioned examples versus demos. Describe published examples as shared with permission; do not claim customer songs are never published under any circumstances.
+- The site is live and has customer examples. The old pre-launch/first-customer statements below are not current.
+- The live offer advertises 48-hour delivery for Essential/Simcha Special and 24-hour priority for L'Dor V'Dor. These replace the old 5–7-day/72-hour website copy. The exact delivery-clock start, revision turnaround, song length, refund/cancellation terms, and usage rights still need owner confirmation before expanding public promises.
+- The buying flow is: view prices → complete the 5–10-minute Tally brief → choose a package and pay through Stripe → production and delivery. Clicking a brief link is not a purchase or a completed brief.
+- Contact: hello@lchaimlyrics.com.
+- Production tools, human/AI involvement, named team credentials, and instrument-recording claims have not been verified. Do not use historical claims below as proof or conceal the production process when asked.
+- Homepage translations are a convenience feature. Service pages and guides remain English; complete localized SEO pages are not yet available.
+
+## Historical Positioning — Unverified Unless Confirmed Above
 
 ## Product Overview
 **One-liner:** Custom, studio-quality songs for Jewish celebrations

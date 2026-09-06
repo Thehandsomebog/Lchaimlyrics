@@ -9,7 +9,9 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-ND48VMKB6V');
+      if (['lchaimlyrics.com', 'www.lchaimlyrics.com'].includes(location.hostname)) {
+        gtag('config', 'G-ND48VMKB6V');
+      }
     </script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -117,7 +119,7 @@
                         "name": "Is my custom song private?",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "Absolutely. Your song is created exclusively for you and is never shared, resold, or used anywhere else. Your privacy is always protected."
+                            "text": "Your song is created for you and delivered privately. We do not publish your song or personal story without your permission."
                         }
                     },
                     {
@@ -168,11 +170,13 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
             <a href="/" class="nav-logo">
                 <img src="assets/images/logo.png" alt="L'Chaim Lyrics - Custom songs for Jewish weddings and celebrations" width="677" height="369">
+                <span class="nav-wordmark" translate="no">L’Chaim Lyrics</span>
             </a>
             <ul class="nav-links">
                 <li><a href="#listen">Listen</a></li>
@@ -202,13 +206,13 @@
                 </div>
                 <a href="https://tally.so/r/QK7l77?source=lchaimlyrics" class="nav-cta">Start Your Song</a>
             </div>
-            <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+            <button class="nav-toggle" type="button" aria-controls="mobile-navigation" aria-label="Open navigation menu" aria-expanded="false">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                     <path d="M4 7h16M4 12h16M4 17h16"/>
                 </svg>
             </button>
         </div>
-        <div class="nav-mobile-panel">
+        <div class="nav-mobile-panel" id="mobile-navigation">
             <div class="nav-mobile-links">
                 <a href="#listen">Listen</a>
                 <a href="#how-it-works">How It Works</a>
@@ -219,12 +223,23 @@
         </div>
     </nav>
 
+    <main id="main-content" tabindex="-1">
+
     <!-- Hero Section -->
-    <header class="hero" id="hero">
+    <header class="hero hero-home" id="hero">
         <div class="hero-content">
             <h1>A Custom Song for the Simcha They'll Never Forget</h1>
-            <p class="hero-subtitle">Share the names, memories, Hebrew details, and family moments that matter. We turn them into a private, studio-quality song for your wedding, Bar/Bat Mitzvah, henna, or milestone celebration.</p>
-            <a href="https://tally.so/r/QK7l77?source=lchaimlyrics" class="btn btn-primary">Start My Simcha Song</a>
+            <p class="hero-subtitle">A personal song for your Jewish wedding, Bar or Bat Mitzvah, or family celebration. Made from your story, Hebrew names, and favorite memories.</p>
+            <div class="hero-actions">
+                <a href="https://tally.so/r/QK7l77?source=lchaimlyrics" class="btn btn-primary">Start My Simcha Song</a>
+                <a href="#listen" class="btn btn-secondary">Hear Customer Songs</a>
+            </div>
+            <p class="hero-next-step">Packages from $199 USD. Share your story first; pay after the brief.</p>
+            <p class="language-scope-note" data-language-note hidden>Only the homepage is translated. Guides and the song brief are in English.</p>
+            <div class="hero-preview">
+                <p><strong>Shir HaShirim</strong> <span>— a customer's chuppah song</span></p>
+                <audio controls preload="none" data-sample-id="chuppah" aria-label="Listen to Shir HaShirim, a customer chuppah song" src="assets/audio/Shir%20HaShirim.mp3"></audio>
+            </div>
         </div>
         <div class="hero-decoration"></div>
     </header>
@@ -256,17 +271,17 @@
     <section class="listen" id="listen">
         <div class="container">
             <h2>Listen by Celebration</h2>
-            <p class="section-subtitle">Sample the range of moments we write for, from the chuppah to the party entrance. Each song is built around the family, the milestone, and the story behind it.</p>
+            <p class="section-subtitle">Real customer songs, shared with permission. Hear the range from the chuppah to the dance floor. Your song will be built around your own family and story.</p>
 
             <div class="song-grid">
                 <!-- Song Card 1 - Henna -->
                 <article class="song-card">
                     <div class="song-player">
-                        <button class="play-btn" type="button" data-audio="assets/audio/אַהֲרֹן וְלֵאָה (Aaron v'Lea).mp3" data-title="The Cohen Wedding Henna" aria-label="Play preview of The Cohen Wedding Henna" aria-pressed="false">
+                        <button class="play-btn" type="button" data-audio="assets/audio/אַהֲרֹן וְלֵאָה (Aaron v'Lea).mp3" data-sample-id="henna" data-title="The Cohen Wedding Henna" aria-label="Play preview of The Cohen Wedding Henna" aria-pressed="false">
                             <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M8 5v14l11-7z"/>
                             </svg>
-                            <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                            <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
                             </svg>
                         </button>
@@ -282,11 +297,11 @@
                 <!-- Song Card 2 - Ashkenazi Wedding -->
                 <article class="song-card">
                     <div class="song-player">
-                        <button class="play-btn" type="button" data-audio="assets/audio/מֶנְדִי וְרִיבְקה.mp3" data-title="מֶנְדִי וְרִיבְקה" aria-label="Play preview of מֶנְדִי וְרִיבְקה" aria-pressed="false">
+                        <button class="play-btn" type="button" data-audio="assets/audio/מֶנְדִי וְרִיבְקה.mp3" data-sample-id="ashkenazi-wedding" data-title="מֶנְדִי וְרִיבְקה" aria-label="Play preview of מֶנְדִי וְרִיבְקה" aria-pressed="false">
                             <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M8 5v14l11-7z"/>
                             </svg>
-                            <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                            <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
                             </svg>
                         </button>
@@ -302,11 +317,11 @@
                 <!-- Song Card 3 - Chuppah -->
                 <article class="song-card">
                     <div class="song-player">
-                        <button class="play-btn" type="button" data-audio="assets/audio/Shir HaShirim.mp3" data-title="Shir HaShirim" aria-label="Play preview of Shir HaShirim" aria-pressed="false">
+                        <button class="play-btn" type="button" data-audio="assets/audio/Shir HaShirim.mp3" data-sample-id="chuppah" data-title="Shir HaShirim" aria-label="Play preview of Shir HaShirim" aria-pressed="false">
                             <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M8 5v14l11-7z"/>
                             </svg>
-                            <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                            <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
                             </svg>
                         </button>
@@ -339,7 +354,11 @@
                 </a>
                 <a href="bar-mitzvah-song.html" class="celebration-card">
                     <span class="celebration-icon">✡️</span>
-                    <h3>Bar/Bat Mitzvahs</h3>
+                    <h3>Bar Mitzvahs</h3>
+                </a>
+                <a href="bat-mitzvah-song.html" class="celebration-card">
+                    <span class="celebration-icon" aria-hidden="true">✡️</span>
+                    <h3>Bat Mitzvahs</h3>
                 </a>
                 <a href="custom-anniversary-song.html" class="celebration-card">
                     <span class="celebration-icon">❤️</span>
@@ -366,7 +385,7 @@
         <div class="container">
             <span class="section-kicker">How It Works</span>
             <h2>4 Easy Steps</h2>
-            <p class="section-subtitle">From your story to a finished simcha song in four simple steps. The song brief takes 5 minutes max.</p>
+            <p class="section-subtitle">From your story to a finished simcha song in four simple steps. The song brief takes 5–10 minutes.</p>
 
             <div class="process-steps-grid">
                 <div class="process-step-card">
@@ -378,7 +397,7 @@
                         </svg>
                     </div>
                     <h3>Share Your Story</h3>
-                    <strong>5 minutes max</strong>
+                    <strong>5–10 minutes</strong>
                     <p>Answer a few simple questions about the simcha, the people, the memories, and the moment you want to create.</p>
                 </div>
 
@@ -425,7 +444,7 @@
 
             <div class="how-it-works-cta">
                 <a href="https://tally.so/r/QK7l77?source=lchaimlyrics" class="btn btn-primary">Start My Song</a>
-                <p>Takes 5 minutes max to complete</p>
+                <p>Allow 5–10 minutes to complete</p>
             </div>
         </div>
     </section>
@@ -440,6 +459,9 @@
                 <!-- Essential -->
                 <div class="pricing-card">
                     <h3>Essential</h3>
+                    <!-- package-price:essential -->
+                    <p class="price"><span class="amount">$199</span> <span>USD · one-time</span></p>
+                    <!-- /package-price -->
                     <p class="package-note">Simple keepsake song</p>
                     <ul class="features">
                         <li>
@@ -470,6 +492,9 @@
                 <div class="pricing-card featured">
                     <span class="badge">Most Popular</span>
                     <h3>Simcha Special</h3>
+                    <!-- package-price:simcha-special -->
+                    <p class="price"><span class="amount">$289</span> <span>USD · one-time</span></p>
+                    <!-- /package-price -->
                     <p class="package-note">Most popular for simchas</p>
                     <ul class="features">
                         <li>
@@ -499,6 +524,9 @@
                 <!-- L'Dor V'Dor -->
                 <div class="pricing-card">
                     <h3>L'Dor V'Dor</h3>
+                    <!-- package-price:ldor-vdor -->
+                    <p class="price"><span class="amount">$389</span> <span>USD · one-time</span></p>
+                    <!-- /package-price -->
                     <p class="package-note">Priority turnaround package</p>
                     <ul class="features">
                         <li>
@@ -529,7 +557,7 @@
             <div class="pricing-reassurance">
                 <div class="pricing-trust-item">
                     <strong>Clear Next Step</strong>
-                    <span>Start with the questionnaire so your story is captured before you choose the package and pay.</span>
+                    <span>Review the prices here, then share your story. Choose your package and pay securely after the brief.</span>
                 </div>
                 <div class="pricing-trust-item">
                     <strong>Revisions Included</strong>
@@ -537,7 +565,7 @@
                 </div>
                 <div class="pricing-trust-item">
                     <strong>Private by Default</strong>
-                    <span>Your song and your story stay private. We do not reuse, resell, or publish customer songs.</span>
+                    <span>Your song and your story stay private. Customer examples are shared only with permission.</span>
                 </div>
             </div>
 
@@ -577,7 +605,7 @@
 
                 <div class="faq-item">
                     <h3 class="faq-question">Is my custom song private?</h3>
-                    <p class="faq-answer">Absolutely. Your song is created exclusively for you and is never shared, resold, or used anywhere else. Your privacy is always protected.</p>
+                    <p class="faq-answer">Your song is created for you and delivered privately. We do not publish your song or personal story without your permission.</p>
                 </div>
 
                 <div class="faq-item">
@@ -614,6 +642,8 @@
     </section>
 
     <!-- Footer -->
+    </main>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -647,7 +677,7 @@
             </div>
             <div class="footer-privacy">
                 <h2>Your Privacy, Guaranteed</h2>
-                <p>Your custom song is created exclusively for you. We never share, resell, or use your song or personal stories anywhere else. Your celebration, your music, your privacy—always protected.</p>
+                <p>Your custom song is created for you and delivered privately. We do not publish your song or personal story without your permission. Your celebration, your music, your privacy—always protected.</p>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 L'Chaim Lyrics. All rights reserved.</p>
@@ -655,6 +685,7 @@
         </div>
     </footer>
 
+    <script src="js/languages.js?v=site-review" defer></script>
     <script src="js/main.js?v=self-hosted-lang" defer></script>
 </body>
 </html>

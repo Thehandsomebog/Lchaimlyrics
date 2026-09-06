@@ -1,0 +1,9 @@
+{
+  "currency": "USD",
+  "confirmedOn": "2026-09-06",
+  "packages": {
+    "essential": { "name": "Essential", "price": 199 },
+    "simcha-special": { "name": "Simcha Special", "price": 289 },
+    "ldor-vdor": { "name": "L'Dor V'Dor", "price": 389 }
+  }
+}

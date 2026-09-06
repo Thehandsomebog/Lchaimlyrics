@@ -3,17 +3,10 @@
 <head>
     <meta charset="UTF-8">
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ND48VMKB6V"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-ND48VMKB6V');
-    </script>
+    <!-- No analytics on this unverified static return page. -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Thank you for your L'Chaim Lyrics order. Your payment is confirmed and your custom song is ready for production.">
+    <meta name="description" content="Thank you for your L'Chaim Lyrics order. Check your receipt for payment confirmation and contact us with any questions.">
     <meta name="author" content="L'Chaim Lyrics">
     <meta name="robots" content="noindex, nofollow">
     <link rel="canonical" href="https://lchaimlyrics.com/thank-you.html">
@@ -23,14 +16,14 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://lchaimlyrics.com/thank-you.html">
     <meta property="og:title" content="Thank You | L'Chaim Lyrics">
-    <meta property="og:description" content="Your order is confirmed and your custom song is ready for production.">
+    <meta property="og:description" content="Check your email for your payment receipt and order details.">
     <meta property="og:image" content="https://lchaimlyrics.com/assets/images/logo.png">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://lchaimlyrics.com/thank-you.html">
     <meta name="twitter:title" content="Thank You | L'Chaim Lyrics">
-    <meta name="twitter:description" content="Your order is confirmed and your custom song is ready for production.">
+    <meta name="twitter:description" content="Check your email for your payment receipt and order details.">
     <meta name="twitter:image" content="https://lchaimlyrics.com/assets/images/logo.png">
 
     <!-- Structured Data -->
@@ -87,10 +80,12 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
 </head>
 <body data-thank-you-page>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <nav class="nav">
         <div class="nav-container">
             <a href="/" class="nav-logo">
                 <img src="assets/images/logo.png" alt="L'Chaim Lyrics - Custom songs for Jewish weddings and celebrations" width="677" height="369">
+                <span class="nav-wordmark" translate="no">L’Chaim Lyrics</span>
             </a>
             <ul class="nav-links">
                 <li><a href="/#listen">Listen</a></li>
@@ -120,13 +115,13 @@
                 </div>
                 <a href="https://tally.so/r/QK7l77?source=lchaimlyrics" class="nav-cta">Start Another Song</a>
             </div>
-            <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+            <button class="nav-toggle" type="button" aria-controls="mobile-navigation" aria-label="Open navigation menu" aria-expanded="false">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                     <path d="M4 7h16M4 12h16M4 17h16"/>
                 </svg>
             </button>
         </div>
-        <div class="nav-mobile-panel">
+        <div class="nav-mobile-panel" id="mobile-navigation">
             <div class="nav-mobile-links">
                 <a href="/#listen">Listen</a>
                 <a href="/#how-it-works">How It Works</a>
@@ -137,6 +132,8 @@
         </div>
     </nav>
 
+    <main id="main-content" tabindex="-1">
+
     <div class="breadcrumb">
         <div class="container">
             <a href="/">Home</a> &rsaquo; <span>Thank You</span>
@@ -146,37 +143,37 @@
     <header class="hero hero-landing thank-you-hero">
         <div class="hero-content">
             <p class="thank-you-kicker">Mazel Tov</p>
-            <h1>Your order is confirmed.</h1>
+            <h1>Check Your Email for Confirmation</h1>
             <p class="hero-subtitle">
-                Your <span class="thank-you-plan-highlight" data-plan-name>custom song</span> order is in. Since the song brief comes before checkout, we already have the details we need to begin production.
+                If you completed Stripe checkout, look for your payment receipt in your inbox. This page cannot verify payment or confirm that your brief was received.
             </p>
             <div class="thank-you-actions">
                 <a href="mailto:hello@lchaimlyrics.com?subject=L%27Chaim%20Lyrics%20Order%20Details" class="btn btn-primary">Add or Clarify Details</a>
                 <a href="mailto:hello@lchaimlyrics.com?subject=L%27Chaim%20Lyrics%20Order%20Support" class="btn btn-secondary">Email Support</a>
             </div>
             <p class="thank-you-note" data-redirect-note aria-live="polite">
-                Watch your inbox for confirmation and any follow-up questions about your song.
+                Keep your receipt handy. If it has not arrived, check spam or email us before trying checkout again.
             </p>
             <p class="thank-you-note" data-questionnaire-fallback hidden>
                 If you need to add a detail, email us and we will attach it to your song brief.
             </p>
             <noscript>
-                <p class="thank-you-note">JavaScript is off in this browser. Your order is still confirmed.</p>
+                <p class="thank-you-note">Your Stripe receipt is the record of your payment. Contact us if you need help confirming your order.</p>
             </noscript>
         </div>
 
         <div class="thank-you-summary pricing-reassurance">
             <div class="pricing-trust-item">
-                <strong>Package Confirmed</strong>
-                <span data-plan-name>Custom Song</span>
+                <strong>Package</strong>
+                <span>See your receipt</span>
             </div>
             <div class="pricing-trust-item">
-                <strong>Order Value</strong>
-                <span data-plan-price>Paid at checkout</span>
+                <strong>Payment</strong>
+                <span>Check your Stripe receipt</span>
             </div>
             <div class="pricing-trust-item">
-                <strong>Estimated Delivery</strong>
-                <span data-plan-delivery>48 hours</span>
+                <strong>Questions?</strong>
+                <a href="mailto:hello@lchaimlyrics.com">Email our team</a>
             </div>
         </div>
     </header>
@@ -184,7 +181,7 @@
     <section class="how-it-works">
         <div class="container">
             <h2>What Happens Next</h2>
-            <p class="section-subtitle">Your brief and payment are complete. Here is what happens as production begins.</p>
+            <p class="section-subtitle">Once your brief and payment are complete, we can prepare your song. If you are unsure either step went through, contact us before paying again.</p>
             <div class="steps-grid">
                 <div class="step">
                     <div class="step-icon">
@@ -250,11 +247,13 @@
     <section class="testimonial-section thank-you-support">
         <div class="container">
             <div class="proof-panel">
-                <h3>Your order is confirmed.</h3>
+                <h3>Need Help Checking Your Order?</h3>
                 <p>If you need to clarify pronunciation, add a memory, or adjust a style note, email hello@lchaimlyrics.com and we will attach it to your brief.</p>
             </div>
         </div>
     </section>
+
+    </main>
 
     <footer class="footer">
         <div class="container">
@@ -289,7 +288,7 @@
             </div>
             <div class="footer-privacy">
                 <h2>Your Privacy, Guaranteed</h2>
-                <p>Your custom song is created exclusively for you. We never share, resell, or use your song or personal stories anywhere else. Your celebration, your music, your privacy, always protected.</p>
+                <p>Your custom song is created for you and delivered privately. We do not publish your song or personal story without your permission. Your celebration, your music, your privacy, always protected.</p>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 L'Chaim Lyrics. All rights reserved.</p>
