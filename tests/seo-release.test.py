@@ -50,6 +50,10 @@ class SEOReleaseTests(unittest.TestCase):
         self.check_mutation('robots.txt', lambda text: text.replace('Sitemap:', '# Sitemap:'),
                             'missing canonical sitemap declaration')
 
+    def test_unsupported_crawler_wildcard(self):
+        self.check_mutation('robots.txt', lambda text: text.replace('Allow: /', 'Disallow: /*.html$'),
+                            'wildcard rules require crawler-aware review')
+
 
 if __name__ == '__main__':
     unittest.main()

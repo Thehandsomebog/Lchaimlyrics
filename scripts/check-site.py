@@ -125,6 +125,11 @@ sitemap = [node.text for node in ET.parse(SITE / 'sitemap.xml').findall('.//{*}l
 require(len(sitemap) == len(set(sitemap)), 'Duplicate sitemap URLs')
 require(set(sitemap) == indexable, f'Sitemap mismatch: {set(sitemap) ^ indexable}')
 robots_text = (SITE / 'robots.txt').read_text()
+for line in robots_text.splitlines():
+    directive, separator, value = line.split('#', 1)[0].partition(':')
+    if separator and directive.strip().lower() in ('allow', 'disallow'):
+        require(not any(char in value for char in '*$'),
+                'robots.txt: wildcard rules require crawler-aware review; release checker cannot validate them')
 require(any(line.strip().lower() == f'sitemap: {ORIGIN}sitemap.xml'.lower()
             for line in robots_text.splitlines()), 'robots.txt: missing canonical sitemap declaration')
 robots = RobotFileParser()
