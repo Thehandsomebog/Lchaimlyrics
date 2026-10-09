@@ -16,6 +16,17 @@ function initHomepageLanguageSwitcher() {
     const originalMetaDescription = document.querySelector('meta[name="description"]')?.getAttribute('content') || '';
     const translations = {
         fr: {
+            "Still Planning Your Celebration Music?": "Vous préparez encore la musique de votre fête ?",
+            "Find song ideas, listening links, and practical ways to make the music fit your celebration.": "Découvrez des idées de chansons, des liens d’écoute et des conseils pour adapter la musique à votre fête.",
+            "Jewish Wedding First-Dance Songs": "Chansons pour la première danse d’un mariage juif",
+            "Compare song ideas and prepare your first-dance handoff for the DJ.": "Comparez des idées de chansons et préparez les indications pour votre DJ.",
+            "Explore first-dance ideas →": "Découvrir les idées pour la première danse →",
+            "Bar & Bat Mitzvah Montage Songs": "Chansons de montage pour Bar et Bat Mitzvah",
+            "Plan the music for family memories, friendships, and the final celebration.": "Planifiez la musique pour les souvenirs de famille, les amitiés et la fête finale.",
+            "Plan your montage soundtrack →": "Préparer la bande-son du montage →",
+            "Henna Party Song Ideas": "Idées de chansons pour une fête du henné",
+            "Choose music for the entrance, ceremony, family moments, and dancing.": "Choisissez la musique pour l’entrée, la cérémonie, les moments en famille et la danse.",
+            "Explore henna music ideas →": "Découvrir les idées de musique pour le henné →",
             'Listen': 'Écouter',
             'How It Works': 'Comment ça marche',
             'Pricing': 'Forfaits',
@@ -120,6 +131,17 @@ function initHomepageLanguageSwitcher() {
             'Your custom song is created exclusively for you. We never share, resell, or use your song or personal stories anywhere else. Your celebration, your music, your privacy—always protected.': 'Votre chanson personnalisée est créée exclusivement pour vous. Nous ne partageons, revendons ni utilisons votre chanson ou vos histoires personnelles ailleurs. Votre célébration, votre musique, votre confidentialité, toujours protégées.'
         },
         es: {
+            "Still Planning Your Celebration Music?": "¿Sigues preparando la música de tu celebración?",
+            "Find song ideas, listening links, and practical ways to make the music fit your celebration.": "Encuentra ideas de canciones, enlaces para escuchar y consejos para adaptar la música a tu celebración.",
+            "Jewish Wedding First-Dance Songs": "Canciones para el primer baile de una boda judía",
+            "Compare song ideas and prepare your first-dance handoff for the DJ.": "Compara ideas de canciones y prepara las indicaciones para tu DJ.",
+            "Explore first-dance ideas →": "Explorar ideas para el primer baile →",
+            "Bar & Bat Mitzvah Montage Songs": "Canciones para montajes de Bar y Bat Mitzvá",
+            "Plan the music for family memories, friendships, and the final celebration.": "Planifica la música para los recuerdos familiares, las amistades y la celebración final.",
+            "Plan your montage soundtrack →": "Planificar la banda sonora del montaje →",
+            "Henna Party Song Ideas": "Ideas de canciones para una fiesta de henna",
+            "Choose music for the entrance, ceremony, family moments, and dancing.": "Elige música para la entrada, la ceremonia, los momentos familiares y el baile.",
+            "Explore henna music ideas →": "Explorar ideas de música para la henna →",
             'Listen': 'Escuchar',
             'How It Works': 'Cómo funciona',
             'Pricing': 'Paquetes',
@@ -224,6 +246,17 @@ function initHomepageLanguageSwitcher() {
             'Your custom song is created exclusively for you. We never share, resell, or use your song or personal stories anywhere else. Your celebration, your music, your privacy—always protected.': 'Tu canción personalizada se crea exclusivamente para ti. Nunca compartimos, revendemos ni usamos tu canción o tus historias personales en otro lugar. Tu celebración, tu música y tu privacidad siempre están protegidas.'
         },
         he: {
+            "Still Planning Your Celebration Music?": "עדיין מתכננים את המוזיקה לשמחה שלכם?",
+            "Find song ideas, listening links, and practical ways to make the music fit your celebration.": "גלו רעיונות לשירים, קישורים להאזנה ועצות להתאמת המוזיקה לחגיגה שלכם.",
+            "Jewish Wedding First-Dance Songs": "שירים לריקוד הראשון בחתונה יהודית",
+            "Compare song ideas and prepare your first-dance handoff for the DJ.": "השוו רעיונות לשירים והכינו הנחיות לתקליטן לקראת הריקוד הראשון.",
+            "Explore first-dance ideas →": "גלו רעיונות לריקוד הראשון ←",
+            "Bar & Bat Mitzvah Montage Songs": "שירים למצגת בר ובת מצווה",
+            "Plan the music for family memories, friendships, and the final celebration.": "תכננו את המוזיקה לזיכרונות משפחתיים, לחברויות ולחגיגה שבסיום.",
+            "Plan your montage soundtrack →": "תכננו את פס הקול למצגת ←",
+            "Henna Party Song Ideas": "רעיונות לשירים למסיבת חינה",
+            "Choose music for the entrance, ceremony, family moments, and dancing.": "בחרו מוזיקה לכניסה, לטקס, לרגעים המשפחתיים ולריקודים.",
+            "Explore henna music ideas →": "גלו רעיונות למוזיקה לחינה ←",
             'Listen': 'האזנה',
             'How It Works': 'איך זה עובד',
             'Pricing': 'חבילות',

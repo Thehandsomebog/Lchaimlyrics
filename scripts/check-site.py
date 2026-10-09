@@ -3,6 +3,7 @@
 from pathlib import Path
 from html.parser import HTMLParser
 from urllib.parse import urljoin, urlparse, unquote
+from urllib.robotparser import RobotFileParser
 from collections import Counter
 import json
 import re
@@ -87,6 +88,14 @@ for path in paths:
         except json.JSONDecodeError as error:
             errors.append(f'{path}: invalid JSON-LD: {error}')
     if 'noindex' not in meta.get('robots', ''):
+        social = {a.get('property', a.get('name')): a.get('content', '')
+                  for t, a in p.tags if t == 'meta'}
+        for key in ('og:url', 'twitter:url'):
+            require(social.get(key) == expected_url, f'{path}: {key} must match canonical')
+        for key in ('og:title', 'og:description', 'og:image', 'twitter:card',
+                    'twitter:title', 'twitter:description', 'twitter:image'):
+            require(bool(social.get(key, '').strip()), f'{path}: missing {key}')
+        require(bool(p.jsons), f'{path}: missing JSON-LD')
         titles.append(p.title)
         descriptions.append(meta.get('description'))
         indexable.add(expected_url)
@@ -115,6 +124,19 @@ for label, values in [('title', titles), ('description', descriptions)]:
 sitemap = [node.text for node in ET.parse(SITE / 'sitemap.xml').findall('.//{*}loc')]
 require(len(sitemap) == len(set(sitemap)), 'Duplicate sitemap URLs')
 require(set(sitemap) == indexable, f'Sitemap mismatch: {set(sitemap) ^ indexable}')
+robots_text = (SITE / 'robots.txt').read_text()
+for line in robots_text.splitlines():
+    directive, separator, value = line.split('#', 1)[0].partition(':')
+    if separator and directive.strip().lower() in ('allow', 'disallow'):
+        require(not any(char in value for char in '*$'),
+                'robots.txt: wildcard rules require crawler-aware review; release checker cannot validate them')
+require(any(line.strip().lower() == f'sitemap: {ORIGIN}sitemap.xml'.lower()
+            for line in robots_text.splitlines()), 'robots.txt: missing canonical sitemap declaration')
+robots = RobotFileParser()
+robots.parse(robots_text.splitlines())
+for url in sorted(indexable):
+    for agent in ('Googlebot', 'Bingbot', '*'):
+        require(robots.can_fetch(agent, url), f'robots.txt: {agent} blocked indexable URL {url}')
 for file in SITE.rglob('*'):
     if file.is_file():
         rel = file.relative_to(SITE).as_posix()
@@ -123,4 +145,4 @@ for file in SITE.rglob('*'):
 if errors:
     print('\n'.join(errors))
     sys.exit(1)
-print(f'PASS: {len(pages)} pages; {len(indexable)} indexable URLs; metadata, landmarks, links, assets, JSON-LD, prices and public-only artifact.')
+print(f'PASS: {len(pages)} pages; {len(indexable)} indexable URLs; metadata, social URLs, robots, landmarks, links, assets, JSON-LD, prices and public-only artifact.')
