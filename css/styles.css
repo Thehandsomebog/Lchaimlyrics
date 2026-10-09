@@ -2430,6 +2430,10 @@ main, [id] { scroll-margin-top: 105px; }
     text-decoration: none;
 }
 
+.planning-guides .related-articles-grid {
+    max-width: none;
+}
+
 .related-article-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-lg);

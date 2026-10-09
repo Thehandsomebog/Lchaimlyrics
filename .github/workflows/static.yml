@@ -41,6 +41,8 @@ jobs:
           node-version: '22'
       - name: Test JavaScript
         run: node --test tests/site.test.cjs
+      - name: Test SEO release safeguards
+        run: python3 tests/seo-release.test.py
       - name: Build public site
         run: python3 scripts/build-site.py
       - name: Check published pages
